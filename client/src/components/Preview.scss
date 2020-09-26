@@ -1,13 +1,14 @@
-preview-card {
+.preview-card {
 	display: flex;
 	flex-direction: column;
 	width: 15em;
 
-	preview-image {
+	.preview-cover {
+		position: relative;
 		width: 100%;
 	}
 
-	preview-info {
+	.preview-info {
 		display: flex;
 		flex-direction: column;
 

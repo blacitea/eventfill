@@ -23,3 +23,11 @@ EmptyPreview.args = {
 };
 
 export const EventPreview = Template.bind({});
+EventPreview.args = {
+	name: 'Event 1',
+	description:
+		'The perfect event to join on this Oct if you love music as much as we do!',
+	imageURL:
+		'https://www.tourismsaskatchewan.com/-/media/things-to-do/events/sasktel-centre-concert-events.ashx',
+	url: '#',
+};
