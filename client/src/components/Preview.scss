@@ -1,0 +1,16 @@
+preview-card {
+	display: flex;
+	flex-direction: column;
+	width: 15em;
+
+	preview-image {
+		width: 100%;
+	}
+
+	preview-info {
+		display: flex;
+		flex-direction: column;
+
+		background-color: grey;
+	}
+}
