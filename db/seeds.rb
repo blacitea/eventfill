@@ -34,8 +34,8 @@ Message.create!(sender_id: 3, recipient_id: 2, content: 'Sup', sent_at: '2020-09
 Message.create!(sender_id: 3, recipient_id: 1, content: 'Perform?', sent_at: '2020-09-07 11:07:39')
 Message.create!(sender_id: 2, recipient_id: 4, content: 'Commission?', sent_at: '2020-09-07 11:07:39')
 
-Event.create!(user_id: 1, genre_id: 1, image_url: 'https://img.com/image1', name: 'GameCon Vancouver 2020', start_date: '2020-09-13 12:00:00', end_date: '2020-09-13 22:00:00', max_attendees: 200, location: 'Vancouver', description: 'Come to this!', accepting_talent: true)
-Event.create!(user_id: 1, genre_id: 3, image_url: 'https://img.com/image2', name: 'CraftCon Vancouver 2020', start_date: '2020-09-20 10:00:00', end_date: '2020-09-20 19:00:00', max_attendees: 120, location: 'Vancouver', description: 'Come to this also!', accepting_talent: false)
+Event.create!(user_id: 1, genre_id: 1, image_url: 'https://img.com/image1', name: 'GameCon Vancouver 2020', start: '2020-09-13 12:00:00', end: '2020-09-13 22:00:00', max_attendees: 200, location: 'Vancouver', description: 'Come to this!', accepting_talent: true)
+Event.create!(user_id: 1, genre_id: 3, image_url: 'https://img.com/image2', name: 'CraftCon Vancouver 2020', start: '2020-09-20 10:00:00', end: '2020-09-20 19:00:00', max_attendees: 120, location: 'Vancouver', description: 'Come to this also!', accepting_talent: false)
 
 TalentProfile.create!(user_id: 1, image_url: 'https://img.com/image3', genre_id: 1, description: 'Game designer', personal_link: 'me@games.com', open_for_booking: true, open_for_commission: false)
 TalentProfile.create!(user_id: 1, image_url: 'https://img.com/image4', genre_id: 2, description: 'Comic artist', personal_link: 'me@comics.com', open_for_booking: true, open_for_commission: true)
