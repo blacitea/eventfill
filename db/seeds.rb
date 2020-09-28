@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or create!d alongside the database with db:setup).
 #
@@ -24,7 +25,7 @@ User.create!(name: 'Sally Baker', email: 'sally@cool.com', location: 'Vancouver'
 Genre.create!(name: 'Video Games')
 Genre.create!(name: 'Comics')
 Genre.create!(name: 'Crafts')
- 
+
 Message.create!(sender_id: 1, recipient_id: 2, content: 'Hello', sent_at: '2020-09-07 11:07:39', read_by_recipient: true)
 Message.create!(sender_id: 2, recipient_id: 1, content: 'Hey!!', sent_at: '2020-09-07 11:11:11', read_by_recipient: true)
 Message.create!(sender_id: 1, recipient_id: 2, content: 'Bye!', sent_at: '2020-09-07 11:27:05', read_by_recipient: false)
@@ -33,8 +34,8 @@ Message.create!(sender_id: 3, recipient_id: 2, content: 'Sup', sent_at: '2020-09
 Message.create!(sender_id: 3, recipient_id: 1, content: 'Perform?', sent_at: '2020-09-07 11:07:39')
 Message.create!(sender_id: 2, recipient_id: 4, content: 'Commission?', sent_at: '2020-09-07 11:07:39')
 
-Event.create!(user_id: 1, genre_id: 1, image_url: 'https://img.com/image1', start_date: '2020-09-13 12:00:00', end_date: '2020-09-13 22:00:00', max_attendees: 200, location: 'Vancouver', description: 'Come to this!', accepting_talent: true)
-Event.create!(user_id: 1, genre_id: 3, image_url: 'https://img.com/image2', start_date: '2020-09-20 10:00:00', end_date: '2020-09-20 19:00:00', max_attendees: 120, location: 'Vancouver', description: 'Come to this also!', accepting_talent: false)
+Event.create!(user_id: 1, genre_id: 1, image_url: 'https://img.com/image1', name: 'GameCon Vancouver 2020', start_date: '2020-09-13 12:00:00', end_date: '2020-09-13 22:00:00', max_attendees: 200, location: 'Vancouver', description: 'Come to this!', accepting_talent: true)
+Event.create!(user_id: 1, genre_id: 3, image_url: 'https://img.com/image2', name: 'CraftCon Vancouver 2020', start_date: '2020-09-20 10:00:00', end_date: '2020-09-20 19:00:00', max_attendees: 120, location: 'Vancouver', description: 'Come to this also!', accepting_talent: false)
 
 TalentProfile.create!(user_id: 1, image_url: 'https://img.com/image3', genre_id: 1, description: 'Game designer', personal_link: 'me@games.com', open_for_booking: true, open_for_commission: false)
 TalentProfile.create!(user_id: 1, image_url: 'https://img.com/image4', genre_id: 2, description: 'Comic artist', personal_link: 'me@comics.com', open_for_booking: true, open_for_commission: true)

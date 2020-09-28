@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Users can send or receive Messages which are by default marked unread by recipient on creation
 class CreateMessages < ActiveRecord::Migration[5.2]
   def change
     create_table :messages do |t|

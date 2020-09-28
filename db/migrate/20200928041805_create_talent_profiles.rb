@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# A User-created profile detailing what they do/type of Events they can be booked for
 class CreateTalentProfiles < ActiveRecord::Migration[5.2]
   def change
     create_table :talent_profiles do |t|

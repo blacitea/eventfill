@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
+# An Event that users can create, perform at, or attend
 class CreateEvents < ActiveRecord::Migration[5.2]
   def change
     create_table :events do |t|
       t.integer :user_id, null: false
       t.integer :genre_id, null: false
       t.string :image_url, null: false
+      t.string :name, null: false
       t.datetime :start_date, null: false
       t.datetime :end_date, null: false
       t.integer :max_attendees, null: false
