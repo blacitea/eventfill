@@ -16,16 +16,20 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.integer "owner_id", null: false
+    t.integer "user_id", null: false
     t.integer "genre_id", null: false
     t.integer "image_id", null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.integer "max_attendees", null: false
+    t.string "location", null: false
     t.text "description", null: false
     t.boolean "accepting_talent", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_events_on_genre_id"
     t.index ["image_id"], name: "index_events_on_image_id"
-    t.index ["owner_id"], name: "index_events_on_owner_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -35,16 +39,16 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
   end
 
   create_table "gigs", force: :cascade do |t|
-    t.integer "talent_id", null: false
+    t.integer "talent_profile_id", null: false
     t.integer "event_id", null: false
-    t.string "date", null: false
+    t.datetime "time", null: false
     t.text "description", null: false
     t.boolean "accepted"
     t.boolean "rejected"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_gigs_on_event_id"
-    t.index ["talent_id"], name: "index_gigs_on_talent_id"
+    t.index ["talent_profile_id"], name: "index_gigs_on_talent_profile_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -58,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
   create_table "messages", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "recipient_id", null: false
-    t.text "message_content", null: false
+    t.text "content", null: false
     t.datetime "sent_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
