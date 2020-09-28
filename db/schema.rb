@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20_200_928_042_020) do
     t.integer 'genre_id', null: false
     t.string 'image_url', null: false
     t.string 'name', null: false
-    t.datetime 'start_date', null: false
-    t.datetime 'end_date', null: false
+    t.datetime 'start', null: false
+    t.datetime 'end', null: false
     t.integer 'max_attendees', null: false
     t.string 'location', null: false
     t.text 'description', null: false
