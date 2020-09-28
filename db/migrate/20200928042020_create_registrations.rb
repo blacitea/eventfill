@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Tracks Users going to each Event
 class CreateRegistrations < ActiveRecord::Migration[5.2]
   def change
     create_table :registrations do |t|

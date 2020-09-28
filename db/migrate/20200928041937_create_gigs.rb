@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Information about individual bookings for Events and Talent Profiles
 class CreateGigs < ActiveRecord::Migration[5.2]
   def change
     create_table :gigs do |t|
