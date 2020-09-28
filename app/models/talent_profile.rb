@@ -1,0 +1,2 @@
+class TalentProfile < ApplicationRecord
+end

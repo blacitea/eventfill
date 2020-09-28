@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  image_id: 1
+  genre_id: 1
+  description: MyText
+  personal_link: MyString
+  open_for_booking: false
+  open_for_commission: false
+
+two:
+  user_id: 1
+  image_id: 1
+  genre_id: 1
+  description: MyText
+  personal_link: MyString
+  open_for_booking: false
+  open_for_commission: false

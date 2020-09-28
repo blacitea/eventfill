@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,92 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_09_28_043458) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.integer "owner_id", null: false
+    t.integer "genre_id", null: false
+    t.integer "image_id", null: false
+    t.text "description", null: false
+    t.boolean "accepting_talent", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_events_on_genre_id"
+    t.index ["image_id"], name: "index_events_on_image_id"
+    t.index ["owner_id"], name: "index_events_on_owner_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gigs", force: :cascade do |t|
+    t.integer "talent_id", null: false
+    t.integer "event_id", null: false
+    t.string "date", null: false
+    t.text "description", null: false
+    t.boolean "accepted"
+    t.boolean "rejected"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_gigs_on_event_id"
+    t.index ["talent_id"], name: "index_gigs_on_talent_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "image_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_images_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
+    t.text "message_content", null: false
+    t.datetime "sent_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_registrations_on_event_id"
+    t.index ["user_id"], name: "index_registrations_on_user_id"
+  end
+
+  create_table "talent_profiles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "image_id", null: false
+    t.integer "genre_id", null: false
+    t.text "description", null: false
+    t.string "personal_link", null: false
+    t.boolean "open_for_booking", null: false
+    t.boolean "open_for_commission", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_talent_profiles_on_genre_id"
+    t.index ["image_id"], name: "index_talent_profiles_on_image_id"
+    t.index ["user_id"], name: "index_talent_profiles_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "name", null: false
+    t.string "location", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
