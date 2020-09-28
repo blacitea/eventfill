@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_043458) do
+ActiveRecord::Schema.define(version: 2020_09_28_042020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
   create_table "events", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "genre_id", null: false
-    t.integer "image_id", null: false
+    t.string "image_url", null: false
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
     t.integer "max_attendees", null: false
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_events_on_genre_id"
-    t.index ["image_id"], name: "index_events_on_image_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -42,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
     t.integer "talent_profile_id", null: false
     t.integer "event_id", null: false
     t.datetime "time", null: false
-    t.text "description", null: false
+    t.text "description"
     t.boolean "accepted"
     t.boolean "rejected"
     t.datetime "created_at", null: false
@@ -51,19 +50,12 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
     t.index ["talent_profile_id"], name: "index_gigs_on_talent_profile_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "image_url", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_images_on_user_id"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "recipient_id", null: false
     t.text "content", null: false
     t.datetime "sent_at", null: false
+    t.boolean "read_by_recipient", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"
@@ -81,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
 
   create_table "talent_profiles", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "image_id", null: false
+    t.string "image_url", null: false
     t.integer "genre_id", null: false
     t.text "description", null: false
     t.string "personal_link", null: false
@@ -90,7 +82,6 @@ ActiveRecord::Schema.define(version: 2020_09_28_043458) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_talent_profiles_on_genre_id"
-    t.index ["image_id"], name: "index_talent_profiles_on_image_id"
     t.index ["user_id"], name: "index_talent_profiles_on_user_id"
   end
 

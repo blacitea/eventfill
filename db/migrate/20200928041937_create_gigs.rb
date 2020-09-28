@@ -4,7 +4,7 @@ class CreateGigs < ActiveRecord::Migration[5.2]
       t.integer :talent_profile_id, null: false
       t.integer :event_id, null: false
       t.datetime :time, null: false
-      t.text :description, null: false
+      t.text :description
       t.boolean :accepted
       t.boolean :rejected
 
