@@ -6,12 +6,12 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     create_table :events do |t|
       t.integer :user_id, null: false
       t.integer :genre_id, null: false
+      t.integer :location_id, null: false
       t.string :image_url, null: false
       t.string :name, null: false
       t.datetime :start, null: false
       t.datetime :end, null: false
       t.integer :max_attendees, null: false
-      t.string :location, null: false
       t.text :description, null: false
       t.boolean :accepting_talent, null: false
 
@@ -20,5 +20,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
 
     add_index :events, :user_id, using: :btree
     add_index :events, :genre_id, using: :btree
+    add_index :events, :location_id, using: :btree
   end
 end

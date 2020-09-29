@@ -6,9 +6,11 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :email, null: false
       t.string :name, null: false
-      t.string :location, null: false
+      t.integer :location_id, null: false
 
       t.timestamps null: false
     end
+
+    add_index :users, :location_id, using: :btree
   end
 end
