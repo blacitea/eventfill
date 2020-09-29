@@ -4,6 +4,7 @@
 class TalentProfile < ApplicationRecord
   belongs_to :user
   belongs_to :genre
+  belongs_to :location
 
   has_many :gigs
 end

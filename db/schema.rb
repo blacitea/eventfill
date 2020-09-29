@@ -12,24 +12,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_928_042_020) do
+ActiveRecord::Schema.define(version: 20_200_929_182_733) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
   create_table 'events', force: :cascade do |t|
     t.integer 'user_id', null: false
     t.integer 'genre_id', null: false
+    t.integer 'location_id', null: false
     t.string 'image_url', null: false
     t.string 'name', null: false
     t.datetime 'start', null: false
     t.datetime 'end', null: false
     t.integer 'max_attendees', null: false
-    t.string 'location', null: false
     t.text 'description', null: false
     t.boolean 'accepting_talent', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['genre_id'], name: 'index_events_on_genre_id'
+    t.index ['location_id'], name: 'index_events_on_location_id'
     t.index ['user_id'], name: 'index_events_on_user_id'
   end
 
@@ -50,6 +51,12 @@ ActiveRecord::Schema.define(version: 20_200_928_042_020) do
     t.datetime 'updated_at', null: false
     t.index ['event_id'], name: 'index_gigs_on_event_id'
     t.index ['talent_profile_id'], name: 'index_gigs_on_talent_profile_id'
+  end
+
+  create_table 'locations', force: :cascade do |t|
+    t.string 'name', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
   create_table 'messages', force: :cascade do |t|
@@ -75,8 +82,9 @@ ActiveRecord::Schema.define(version: 20_200_928_042_020) do
 
   create_table 'talent_profiles', force: :cascade do |t|
     t.integer 'user_id', null: false
-    t.string 'image_url', null: false
     t.integer 'genre_id', null: false
+    t.integer 'location_id', null: false
+    t.string 'image_url', null: false
     t.text 'description', null: false
     t.string 'personal_link', null: false
     t.boolean 'open_for_booking', null: false
@@ -84,14 +92,16 @@ ActiveRecord::Schema.define(version: 20_200_928_042_020) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['genre_id'], name: 'index_talent_profiles_on_genre_id'
+    t.index ['location_id'], name: 'index_talent_profiles_on_location_id'
     t.index ['user_id'], name: 'index_talent_profiles_on_user_id'
   end
 
   create_table 'users', force: :cascade do |t|
     t.string 'email', null: false
     t.string 'name', null: false
-    t.string 'location', null: false
+    t.integer 'location_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.index ['location_id'], name: 'index_users_on_location_id'
   end
 end
