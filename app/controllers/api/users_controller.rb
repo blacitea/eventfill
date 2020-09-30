@@ -7,5 +7,9 @@ module API
       @user = User.find params[:id]
       render json: @user
     end
+
+    def create; end
+
+    def destroy; end
   end
 end
