@@ -47,6 +47,10 @@ Layout/LineLength:
   Exclude:
     - 'db/seeds.rb'
 
+Style/SymbolArray:
+  Exclude:
+    - 'config/*'
+
 AllCops:
   NewCops:
     enable
