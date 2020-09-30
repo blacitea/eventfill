@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get '/data', to: 'tests#index'
 
     resources :users, only: [:show]
+    resource :genres, only: [:show]
+    resource :locations, only: [:show]
 
     namespace :events do
       root to: 'events#show'
