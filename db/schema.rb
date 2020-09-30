@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_929_182_733) do
+ActiveRecord::Schema.define(version: 20_200_930_211_431) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 20_200_929_182_733) do
     t.text 'description', null: false
     t.string 'personal_link', null: false
     t.boolean 'open_for_booking', null: false
-    t.boolean 'open_for_commission', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['genre_id'], name: 'index_talent_profiles_on_genre_id'
