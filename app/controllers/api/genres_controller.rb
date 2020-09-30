@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-# Returns a list of all Genres, ordered alphabetically
-class Api::GenresController < ApplicationController
-  def show
-    @genres = Genre.all.order(name: :asc)
+module API
+  # Returns a list of all Genres, ordered alphabetically
+  class GenresController < ApplicationController
+    def show
+      @genres = Genre.all.order(name: :asc)
 
-    render json: @genres
+      render json: @genres
+    end
   end
 end

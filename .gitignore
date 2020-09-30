@@ -69,3 +69,4 @@ yarn-debug.log*
 .DS_Store
 
 Makefile
+/.vscode

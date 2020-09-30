@@ -2,9 +2,13 @@
 
 require 'test_helper'
 
-class Api::Events::EventsControllerTest < ActionDispatch::IntegrationTest
-  test 'should get show' do
-    get api_events_events_show_url
-    assert_response :success
+module Api
+  module Events
+    class EventsControllerTest < ActionDispatch::IntegrationTest
+      test 'should get show' do
+        get api_events_events_show_url
+        assert_response :success
+      end
+    end
   end
 end
