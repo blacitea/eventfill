@@ -47,9 +47,6 @@ Layout/LineLength:
   Exclude:
     - 'db/seeds.rb'
 
-ClassAndModuleChildren: 
-  EnforcedStyle: compact
-
 AllCops:
   NewCops:
     enable
