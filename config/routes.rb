@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
 
     resources :events, only: [:index, :show] do
-      resources :registrations, only: [:create]
+      resources :registrations, only: [:index, :create]
     end
   end
 
