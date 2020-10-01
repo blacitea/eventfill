@@ -10,5 +10,43 @@ module API
 
       render json: @events
     end
+
+    def show
+      @event = Event.find params[:id]
+
+      render json: @event
+    end
+
+    def new
+      @event = Event.new
+
+      render json: { success: @event }
+    end
+
+    def create
+      @event = Event.new(event_params)
+      render json: { success: @event } if @event.save
+    end
+
+    def edit
+      @event = Event.find params[:id]
+    end
+
+    def update
+      @event = Event.find params[:id]
+      if @event.update(event_params)
+        render json: { success: @event }
+      else
+        render json: { error: @event.errors }
+      end
+    end
+
+    private
+
+    def event_params
+      params.require(:event)
+            .permit(:user_id, :genre_id, :location_id, :image_url, :name, :start, :end, :max_attendees,
+                    :description, :accepting_talent)
+    end
   end
 end
