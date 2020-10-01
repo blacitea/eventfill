@@ -43,7 +43,8 @@ module API
 
     def talent_profile_params
       params.require(:talent_profile)
-            .permit(:user_id, :genre_id, :location_id, :image_url, :description, :personal_link, :open_for_booking, :name)
+            .permit(:user_id, :genre_id, :location_id, :image_url, :description, :personal_link,
+                    :open_for_booking, :name)
     end
   end
 end
