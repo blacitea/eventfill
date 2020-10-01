@@ -11,8 +11,10 @@ module API
 
     def show
       @talent_profile = TalentProfile.find params[:id]
+      @gigs = @talent_profile.gigs
+      @gig_count = @talent_profile.gigs.count
 
-      render json: @talent_profile
+      render json: { talent: @talent_profile, gigs: @gigs, gig_count: @gig_count }
     end
 
     def new

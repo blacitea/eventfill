@@ -5,11 +5,9 @@ module API
   class UsersController < ApplicationController
     def show
       @user = User.find params[:id]
-      render json: @user
+      @user_events = @user.registrations.map { |reg| Event.find_by(id: reg.event_id) }
+
+      render json: { user: @user, attending: @user_events }
     end
-
-    def create; end
-
-    def destroy; end
   end
 end

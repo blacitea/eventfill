@@ -13,8 +13,10 @@ module API
 
     def show
       @event = Event.find params[:id]
+      @gigs = @event.gigs.where(accepted: true)
+      @full = @event.registrations.count >= @event.max_attendees
 
-      render json: @event
+      render json: { event: @event, gigs: @gigs, full: @full }
     end
 
     def new

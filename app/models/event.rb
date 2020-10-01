@@ -7,4 +7,5 @@ class Event < ApplicationRecord
   belongs_to :location
 
   has_many :gigs
+  has_many :registrations
 end
