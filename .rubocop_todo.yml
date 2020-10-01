@@ -28,6 +28,10 @@ Metrics/MethodLength:
   Exclude:
     - 'db/migrate/*'
 
+Metrics/AbcSize:
+  Exclude: 
+    - app/controllers/api/registrations_controller.rb
+    
 # Offense count: 18
 Style/Documentation:
   Enabled: true
