@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 module API
-  # Displays a list of all talent_profiles, ordered by the nearest start date/time
+  # Displays a list of all talent_profiles, ordered by most gigs
   class TalentProfilesController < ApplicationController
     def index
-      @talent_profiles = TalentProfile.all.order(name: :asc)
+      @talent_profiles = TalentProfile.all.sort_by { |profile| profile.gigs.count }.reverse
 
       render json: @talent_profiles
     end
 
     def show
       @talent_profile = TalentProfile.find params[:id]
-      @gigs = @talent_profile.gigs
+      @gigs = @talent_profile.gigs.where(accepted: true)
       @gig_count = @talent_profile.gigs.count
 
       render json: { talent: @talent_profile, gigs: @gigs, gig_count: @gig_count }
