@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     end
 
     resources :talent_profiles, only: [:index, :new, :create, :show, :edit, :update]
-
     resources :gigs, only: [:create, :update]
+    resources :messages, only: [:index, :show, :create]
   end
 
   # get '*path', to: 'static_pages#fallback_index_html', constraints: lambda { |request|
