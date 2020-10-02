@@ -36,20 +36,20 @@ user = User.new(name: 'System', email: 'support@eventfill.com', location_id: 1)
 user.id = 0
 user.save!
 
-Message.create!(sender_id: 1, recipient_id: 2, content: 'Hello', sent_at: '2020-09-07 11:07:39', read_by_recipient: true)
-Message.create!(sender_id: 2, recipient_id: 1, content: 'Hey!!', sent_at: '2020-09-07 11:11:11', read_by_recipient: true)
-Message.create!(sender_id: 1, recipient_id: 2, content: 'Bye!', sent_at: '2020-09-07 11:27:05', read_by_recipient: false)
-Message.create!(sender_id: 2, recipient_id: 1, content: 'Hello', sent_at: '2020-09-07 11:42:09')
-Message.create!(sender_id: 3, recipient_id: 2, content: 'Sup', sent_at: '2020-09-07 11:07:39', read_by_recipient: true)
-Message.create!(sender_id: 3, recipient_id: 1, content: 'Perform?', sent_at: '2020-09-07 11:07:39')
-Message.create!(sender_id: 2, recipient_id: 4, content: 'Commission?', sent_at: '2020-09-07 11:07:39')
+Message.create!(sender_id: 1, recipient_id: 2, content: 'Hello', read_by_recipient: true)
+Message.create!(sender_id: 2, recipient_id: 1, content: 'Hey!!', read_by_recipient: true)
+Message.create!(sender_id: 1, recipient_id: 2, content: 'Bye!', read_by_recipient: false)
+Message.create!(sender_id: 2, recipient_id: 1, content: 'Hello')
+Message.create!(sender_id: 3, recipient_id: 2, content: 'Sup', read_by_recipient: true)
+Message.create!(sender_id: 3, recipient_id: 1, content: 'Perform?')
+Message.create!(sender_id: 2, recipient_id: 4, content: 'Commission?')
 
-Event.create!(user_id: 1, genre_id: 1, location_id: 1, image_url: 'https://img.com/image1', name: 'GameCon Vancouver 2020', start: '2020-10-13 12:00:00', end: '2020-10-13 22:00:00', max_attendees: 200, description: 'Come to this!', accepting_talent: true)
-Event.create!(user_id: 1, genre_id: 3, location_id: 1, image_url: 'https://img.com/image2', name: 'CraftCon Vancouver 2020', start: '2020-09-20 10:00:00', end: '2020-09-20 19:00:00', max_attendees: 120, description: 'Come to this also!', accepting_talent: false)
+Event.create!(user_id: 1, genre_id: 1, location_id: 1, image_url: 'https://i.pcmag.com/imagery/lineups/06PiprC5eiYhlpaNS6N0sbP-1.1569492872.fit_lim.fit_lim.size_956x99999.jpg', name: 'GameCon Vancouver 2020', start: '2020-10-13 12:00:00', end: '2020-10-13 22:00:00', max_attendees: 200, description: 'Come to this!', accepting_talent: true)
+Event.create!(user_id: 1, genre_id: 3, location_id: 1, image_url: 'https://www.thespruce.com/thmb/Pot7VQ8sCBiR4virPcehRZYbGq8=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/-assortment-of-scrapbooking-tools-including-colored-paper--pens--and-scissors-click-below-for-more-of-my-scrapbooking-and-arts-and-crafts-images--936822170-ed08f5a6b9d74a0191f16a6f3dd5a272.jpg', name: 'CraftCon Vancouver 2020', start: '2020-09-20 10:00:00', end: '2020-09-20 19:00:00', max_attendees: 120, description: 'Come to this also!', accepting_talent: false)
 
-TalentProfile.create!(user_id: 1, genre_id: 1, location_id: 1, image_url: 'https://img.com/image3', description: 'Game designer', personal_link: 'me@games.com', open_for_booking: true, name: 'JimothyGames')
-TalentProfile.create!(user_id: 1, genre_id: 2, location_id: 1, image_url: 'https://img.com/image4', description: 'Comic artist', personal_link: 'me@comics.com', open_for_booking: true, name: 'JimothyComics')
-TalentProfile.create!(user_id: 3, genre_id: 3, location_id: 3, image_url: 'https://img.com/image5', description: 'Crafter', personal_link: 'me@crafts.com', open_for_booking: false, name: 'Prudence Craftwell')
+TalentProfile.create!(user_id: 1, genre_id: 1, location_id: 1, image_url: 'https://image.shutterstock.com/mosaic_250/2797510/600200732/stock-photo-portrait-of-happy-fashionable-handsome-man-in-jeans-shirt-crossing-hands-and-look-at-camera-600200732.jpg', description: 'Game designer', personal_link: 'me@games.com', open_for_booking: true, name: 'JimothyGames')
+TalentProfile.create!(user_id: 1, genre_id: 2, location_id: 1, image_url: 'https://image.shutterstock.com/mosaic_250/2797510/600200732/stock-photo-portrait-of-happy-fashionable-handsome-man-in-jeans-shirt-crossing-hands-and-look-at-camera-600200732.jpg', description: 'Comic artist', personal_link: 'me@comics.com', open_for_booking: true, name: 'JimothyComics')
+TalentProfile.create!(user_id: 3, genre_id: 3, location_id: 3, image_url: 'https://static01.nyt.com/images/2019/09/04/business/04chinaclone-01/04chinaclone-01-videoSixteenByNineJumbo1600.jpg', description: 'Crafter', personal_link: 'me@crafts.com', open_for_booking: false, name: 'Prudence Craftwell')
 
 Gig.create!(talent_profile_id: 2, event_id: 1, time: '2020-10-13 14:00:00', description: 'Performing, ya!', accepted: true, rejected: nil)
 Gig.create!(talent_profile_id: 3, event_id: 2, time: '2020-09-20 15:00:00', description: 'Drawings galore~', accepted: nil, rejected: true)
