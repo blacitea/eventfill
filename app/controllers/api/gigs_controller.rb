@@ -4,8 +4,7 @@ module API
   # Registrations track Talent Profiles invited to Events, including invite acceptance status
   class GigsController < ApplicationController
     def create
-      if Gig.where(event_id: gig_params[:event_id])
-            .where(talent_profile_id: gig_params[:talent_profile_id]).present?
+      if Gig.where(event_id: gig_params[:event_id], talent_profile_id: gig_params[:talent_profile_id]).present?
         render json: { error: 'Already exists!' }
       else
         @gig = Gig.new(gig_params)
