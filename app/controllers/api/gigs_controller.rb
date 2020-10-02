@@ -8,23 +8,15 @@ module API
         render json: { error: 'Already exists!' }
       else
         @gig = Gig.new(gig_params)
-
-        if @gig.save
-          render json: @gig
-        else
-          render json: { error: @gig.errors }
-        end
+        
+        render json: @gig if @gig.save!
       end
     end
 
     def update
       @gig = Gig.find params[:id]
 
-      if @gig.update(gig_params)
-        render json: @gig
-      else
-        render json: { error: @gig.errors }
-      end
+      render json: @gig if @gig.update(gig_params)!
     end
 
     private
