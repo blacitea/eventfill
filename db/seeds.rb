@@ -32,6 +32,10 @@ User.create!(name: 'Nicola Jones', email: 'nicola@cool.com', location_id: 2)
 User.create!(name: 'Prudence Catwell', email: 'prudence@cats.com', location_id: 3)
 User.create!(name: 'Thomas Smith', email: 'thomas@cool.com', location_id: 1)
 User.create!(name: 'Sally Baker', email: 'sally@cool.com', location_id: 1)
+user = User.new(name: 'System', email: 'support@eventfill.com', location_id: 1)
+user.id = 0
+user.save!
+
 
 Message.create!(sender_id: 1, recipient_id: 2, content: 'Hello', read_by_recipient: true)
 Message.create!(sender_id: 2, recipient_id: 1, content: 'Hey!!', read_by_recipient: true)

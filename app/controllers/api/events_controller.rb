@@ -27,7 +27,7 @@ module API
 
     def create
       @event = Event.new(event_params)
-      render json: { success: @event } if @event.save
+      render json: { success: @event } if @event.save!
     end
 
     def edit
@@ -36,11 +36,8 @@ module API
 
     def update
       @event = Event.find params[:id]
-      if @event.update(event_params)
-        render json: { success: @event }
-      else
-        render json: { error: @event.errors }
-      end
+      
+      render json: { success: @event } if @event.update!(event_params)
     end
 
     private
