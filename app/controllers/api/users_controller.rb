@@ -7,9 +7,8 @@ module API
       @user = User.find params[:id]
       @events = @user.events
       @registrations = @user.registrations
-      @gig_info = @user.gigs.map do |gig|
-        gig.attributes.merge(talent_name: gig.talent_profile.name)
-      end
+      @gigs = @user.gigs.group_by { |gig| gig.talent_profile.name }
+
       render json: { user: @user, owned_events: @events, attending: @registrations, gigs: @gigs }
     end
   end
