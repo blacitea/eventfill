@@ -25,7 +25,7 @@ module API
 
     def create
       @talent_profile = TalentProfile.new(talent_profile_params)
-      render json: { success: @talent_profile } if @talent_profile.save
+      render json: { success: @talent_profile } if @talent_profile.save!
     end
 
     def edit
@@ -34,11 +34,7 @@ module API
 
     def update
       @talent_profile = TalentProfile.find params[:id]
-      if @talent_profile.update(talent_profile_params)
-        render json: { success: @talent_profile }
-      else
-        render json: { error: @talent_profile.errors }
-      end
+      render json: { success: @talent_profile } if @talent_profile.update!(talent_profile_params)
     end
 
     private

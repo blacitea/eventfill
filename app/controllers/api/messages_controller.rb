@@ -37,11 +37,8 @@ module API
 
     def create
       @message = Message.new(message_params)
-      if @message.save
-        render json: { success: @message }
-      else
-        render json: { error: @message.errors }
-      end
+      
+      render json: { success: @message } if @message.save!
     end
 
     private
