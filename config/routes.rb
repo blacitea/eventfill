@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api do # /api/data
     resources :users, only: [:show] do
       resources :registrations, only: [:destroy]
+      resources :messages, only: [:index, :show, :create]
     end
     resource :genres, only: [:show]
     resource :locations, only: [:show]
@@ -26,7 +27,6 @@ Rails.application.routes.draw do
 
     resources :talent_profiles, only: [:index, :new, :create, :show, :edit, :update]
     resources :gigs, only: [:create, :update]
-    resources :messages, only: [:index, :show, :create]
   end
 
   # get '*path', to: 'static_pages#fallback_index_html', constraints: lambda { |request|
