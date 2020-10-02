@@ -15,9 +15,10 @@ module API
 
     def destroy
       @registration = Registration.find params[:id]
-      if @registration.user_id == params[:user_id].to_i && @registration.destroy!
-        render json:
-        { success: "Registration for #{@registration.user.name} to attend #{@registration.event.name} deleted" }
+      return unless @registration.user_id == params[:user_id].to_i && @registration.destroy!
+
+      render json:
+      { success: "Registration for #{@registration.user.name} to attend #{@registration.event.name} deleted" }
     end
   end
 end
