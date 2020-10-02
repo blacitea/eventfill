@@ -43,12 +43,30 @@ module API
       end
     end
 
+    def destroy
+      @event = Event.find params[:id]
+      if @event.user_id == params[:user_id].to_i && @event.destroy
+        cancel_event(@event)
+        render json:
+        { success: "#{@event.name} cancelled" }
+      else
+        render json: { error: 'Could not delete' }
+      end
+    end
+
     private
 
     def event_params
       params.require(:event)
             .permit(:user_id, :genre_id, :location_id, :image_url, :name, :start, :end, :max_attendees,
                     :description, :accepting_talent)
+    end
+
+    def cancel_event(event)
+      event.attendees.each do |attendee|
+        @auto_message = Message.create!(sender: User.find(0), recipient: attendee, content: "Event '#{event.name}' has been cancelled! :(")
+        Registration.destroy.where(user: attendee, event: event)
+      end
     end
   end
 end
