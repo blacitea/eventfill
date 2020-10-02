@@ -13,10 +13,10 @@ module API
 
     def show
       @event = Event.find params[:id]
-      @gigs = @event.gigs.where(accepted: true)
+      @talents = @event.gigs.where(accepted: true).map(&:talent_profile)
       @attendee_count = @event.registrations.count
 
-      render json: { event: @event, gigs: @gigs, attendees: @attendee_count }
+      render json: { event: @event, talents: @talents, attendees: @attendee_count }
     end
 
     def new

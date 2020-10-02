@@ -7,4 +7,5 @@ class TalentProfile < ApplicationRecord
   belongs_to :location
 
   has_many :gigs
+  has_many :events, through: :gigs
 end

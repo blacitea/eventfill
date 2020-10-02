@@ -11,10 +11,10 @@ module API
 
     def show
       @talent_profile = TalentProfile.find params[:id]
-      @gigs = @talent_profile.gigs.where(accepted: true)
+      @events = @talent_profile.gigs.where(accepted: true).map(&:event)
       @gig_count = @talent_profile.gigs.count
 
-      render json: { talent: @talent_profile, gigs: @gigs, gig_count: @gig_count }
+      render json: { talent: @talent_profile, events: @events, gig_count: @gig_count }
     end
 
     def new
