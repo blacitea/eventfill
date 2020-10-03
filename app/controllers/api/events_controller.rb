@@ -97,6 +97,7 @@ module API
         )
         @gig.rejected = true
         @gig.accepted = nil
+        @gig.save!
       end
     end
   end
