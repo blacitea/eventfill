@@ -3,6 +3,7 @@
 module API
   # Displays a list of all talent_profiles, ordered by most gigs
   class TalentProfilesController < ApplicationController
+    include ActionController::Cookies
     def index
       @talent_profiles = TalentProfile.all.sort_by { |profile| profile.gigs.count }.reverse
 
@@ -34,7 +35,11 @@ module API
 
     def update
       @talent_profile = TalentProfile.find params[:id]
-      render json: { success: @talent_profile } if @talent_profile.update!(talent_profile_params)
+      if User.find(cookies[:user_id]) == @talent_profile.user
+        render json: { success: @talent_profile } if @talent_profile.update!(talent_profile_params)
+      else
+        render status: :unauthorized
+      end
     end
 
     private
