@@ -8,15 +8,21 @@ module API
       @messages = Message.where(sender: @user).or(Message.where(recipient: @user))
       @contact_list = generate_contacts(@user, @messages)
 
-      render json: { contacts: @contact_list, messages: @messages }
+      render json: { contacts: @contact_list }
     end
 
     def show
       @user = User.find params[:user_id]
-      @other = User.find params[:id]
-      @messages = Message.where(sender: @user, recipient: @other).or(Message.where(recipient: @user, sender: @other))
 
-      render json: { messages: @messages }
+      if @user.id.to_s == cookies[:user_id]
+        @other = User.find params[:id]
+        @messages = Message.where(sender: @user, recipient: @other).or(Message.where(recipient: @user, sender: @other))
+
+        render json: { messages: @messages }
+      else
+        render status: :unauthorized,
+               json: { error: 'User validation error' }
+      end
     end
 
     ## In case it's needed, not in routes.rb right now
