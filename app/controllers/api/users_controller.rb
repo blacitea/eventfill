@@ -4,6 +4,7 @@ module API
   # Returns information about a given User
   class UsersController < ApplicationController
     include ActionController::Cookies
+    
     def show
       if params[:id].to_s == cookies[:user_id]
         @user = User.find params[:id]

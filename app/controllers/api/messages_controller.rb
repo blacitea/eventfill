@@ -3,12 +3,19 @@
 module API
   # Displays a list of all messages, ordered by most gigs
   class MessagesController < ApplicationController
+    include ActionController::Cookies
+    
     def index
       @user = User.find params[:user_id]
-      @messages = Message.where(sender: @user).or(Message.where(recipient: @user))
-      @contact_list = generate_contacts(@user, @messages)
+      if @user.id.to_s == cookies[:user_id]
+        @messages = Message.where(sender: @user).or(Message.where(recipient: @user))
+        @contact_list = generate_contacts(@user, @messages)
 
-      render json: { contacts: @contact_list }
+        render json: { contacts: @contact_list }
+      else
+        render status: :unauthorized,
+               json: { error: 'User validation error' }
+      end
     end
 
     def show
