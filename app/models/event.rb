@@ -8,5 +8,6 @@ class Event < ApplicationRecord
 
   has_many :gigs
   has_many :registrations
-  has_many :talent_profiles, through: :gigs
+  has_many :talents, through: :gigs, source: :talent_profile
+  has_many :attendees, through: :registrations, source: :user
 end

@@ -5,19 +5,10 @@ module API
   class MessagesController < ApplicationController
     def index
       @user = User.find params[:user_id]
-      messages = Message.where(sender: @user).or(Message.where(recipient: @user))
-      @contact_list = []
+      @messages = Message.where(sender: @user).or(Message.where(recipient: @user))
+      @contact_list = generate_contacts(@user, @messages)
 
-      messages.each do |message|
-        if message.sender == @user
-          @contact_list.push(message.recipient) unless @contact_list.include? message.recipient
-        end
-        next unless message.recipient == @user
-
-        @contact_list.push(message.sender) unless @contact_list.include? message.sender
-      end
-
-      render json: { contacts: @contact_list }
+      render json: { contacts: @contact_list, messages: @messages }
     end
 
     def show
@@ -37,7 +28,7 @@ module API
 
     def create
       @message = Message.new(message_params)
-      
+
       render json: { success: @message } if @message.save!
     end
 
@@ -46,6 +37,20 @@ module API
     def message_params
       params.require(:message)
             .permit(:sender_id, :recipient_id, :content, :read_by_recipient)
+    end
+
+    def generate_contacts(user, messages)
+      @contact_list = []
+
+      messages.each do |message|
+        if message.sender == user
+          @contact_list.push(message.recipient) unless @contact_list.include? message.recipient
+        elsif message.recipient == user
+          @contact_list.push(message.sender) unless @contact_list.include? message.sender
+        end
+      end
+
+      @contact_list
     end
   end
 end

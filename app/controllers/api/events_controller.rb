@@ -36,8 +36,22 @@ module API
 
     def update
       @event = Event.find params[:id]
-      
-      render json: { success: @event } if @event.update!(event_params)
+
+      if @event.user_id == params[:user_id].to_i && @event.update!(event_params)
+        render json: { success: @event }
+      else
+        render json: { error: 'Could not update event. Are you sure it belongs to you?' }
+      end
+    end
+
+    def destroy
+      @event = Event.find params[:id]
+      if @event.user_id == params[:user_id].to_i && @event.destroy!
+        cancel_event(@event)
+        render json: { success: "#{@event.name} cancelled" }
+      else
+        render json: { error: 'Could not delete event. Are you sure it belongs to you?' }
+      end
     end
 
     private
@@ -46,6 +60,38 @@ module API
       params.require(:event)
             .permit(:user_id, :genre_id, :location_id, :image_url, :name, :start, :end, :max_attendees,
                     :description, :accepting_talent)
+    end
+
+    def cancel_event(event)
+      message_attendees(event)
+      message_talents(event)
+    end
+
+    def message_attendees(event)
+      @event = event
+
+      @event.attendees.each do |attendee|
+        @registration = Registration.find_by(user: attendee, event: @event)
+        @auto_message = Message.create!(
+          sender: User.find(0), recipient: attendee,
+          content: "#{attendee.name}: Event '#{@event.name}' has been cancelled! :("
+        )
+        @registration.destroy!
+      end
+    end
+
+    def message_talents(event)
+      @event = event
+
+      @event.talents.each do |talent|
+        @gig = Gig.find_by(talent_profile: talent, event: @event)
+        @auto_message = Message.create!(
+          sender: User.find(0), recipient: talent.user,
+          content: "#{talent.name}: Event '#{@event.name}' + associated gigs have been cancelled! :("
+        )
+        @gig.rejected = true
+        @gig.accepted = nil
+      end
     end
   end
 end

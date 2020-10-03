@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :genre, only: [:show]
     end
 
-    resources :events, only: [:index, :new, :create, :show, :edit, :update] do
+    resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
       resources :registrations, only: [:create]
     end
 
