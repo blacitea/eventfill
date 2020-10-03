@@ -3,6 +3,8 @@
 module API
   # Registrations track which Users are attending each Event
   class RegistrationsController < ApplicationController
+    include ActionController::Cookies
+
     def create
       if Registration.where(event_id: params[:event_id]).where(user_id: params[:user_id]).present?
         render json: { error: 'Already exists!' }
@@ -15,10 +17,14 @@ module API
 
     def destroy
       @registration = Registration.find params[:id]
-      return unless @registration.user_id == params[:user_id].to_i && @registration.destroy!
+      if @registration.user_id.to_s == cookies[:user_id]
+        @registration.destroy!
 
-      render json:
-      { success: "Registration for #{@registration.user.name} to attend #{@registration.event.name} deleted" }
+        render json:
+        { success: "Registration for #{@registration.user.name} to attend #{@registration.event.name} deleted" }
+      else
+        render status: :unauthorized
+      end
     end
   end
 end
