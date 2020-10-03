@@ -3,6 +3,8 @@
 module API
   # Displays a list of all Events, ordered by the nearest start date/time
   class EventsController < ApplicationController
+    include ActionController::Cookies
+
     def index
       @events = {}
       @events[:all] = Event.all.order(start: :asc)
@@ -37,20 +39,24 @@ module API
     def update
       @event = Event.find params[:id]
 
-      if @event.user_id == params[:user_id].to_i && @event.update!(event_params)
+      if @event.user_id.to_s == cookies[:user_id]
+        @event.update!(event_params)
         render json: { success: @event }
       else
-        render json: { error: 'Could not update event. Are you sure it belongs to you?' }
+        render status: :unauthorized,
+               json: { error: 'Could not update event. Are you sure it belongs to you?' }
       end
     end
 
     def destroy
       @event = Event.find params[:id]
-      if @event.user_id == params[:user_id].to_i && @event.destroy!
+      if @event.user_id.to_s == cookies[:user_id]
+        @event.destroy!
         cancel_event(@event)
         render json: { success: "#{@event.name} cancelled" }
       else
-        render json: { error: 'Could not delete event. Are you sure it belongs to you?' }
+        render status: :unauthorized,
+               json: { error: 'Could not delete event. Are you sure it belongs to you?' }
       end
     end
 
@@ -91,6 +97,7 @@ module API
         )
         @gig.rejected = true
         @gig.accepted = nil
+        @gig.save!
       end
     end
   end
