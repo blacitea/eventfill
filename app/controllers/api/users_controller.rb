@@ -10,7 +10,8 @@ module API
 
         render json: display_user_info(@user)
       else
-        render status: :unauthorized
+        render status: :unauthorized,
+               json: { error: 'User validation error' }
       end
     end
 

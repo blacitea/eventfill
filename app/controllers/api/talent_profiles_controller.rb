@@ -38,7 +38,8 @@ module API
       if User.find(cookies[:user_id]) == @talent_profile.user
         render json: { success: @talent_profile } if @talent_profile.update!(talent_profile_params)
       else
-        render status: :unauthorized
+        render status: :unauthorized,
+               json: { error: 'Could not update profile. Are you sure it belongs to you?' }
       end
     end
 
