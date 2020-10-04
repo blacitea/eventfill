@@ -50,9 +50,8 @@ module API
 
     def destroy
       @event = Event.find params[:id]
-      if @event.user_id.to_s == cookies[:user_id]
+      if @event.user_id.to_s == cookies[:user_id] && cancel_event(@event)
         @event.destroy!
-        cancel_event(@event)
         render json: { success: "#{@event.name} cancelled" }
       else
         render status: :unauthorized,
