@@ -4,40 +4,22 @@ module API
   # Displays a list of all messages, ordered by most gigs
   class MessagesController < ApplicationController
     include ActionController::Cookies
-    
-    def index
-      @user = User.find params[:user_id]
-      if @user.id.to_s == cookies[:user_id]
-        @messages = Message.where(sender: @user).or(Message.where(recipient: @user))
-        @contact_list = generate_contacts(@user, @messages)
 
-        render json: { contacts: @contact_list }
-      else
-        render status: :unauthorized,
-               json: { error: 'User validation error' }
-      end
+    def index
+      @user = User.find cookies[:user_id]
+      @messages = Message.where(sender: @user).or(Message.where(recipient: @user))
+      @contact_list = generate_contacts(@user, @messages)
+
+      render json: { contacts: @contact_list }
     end
 
     def show
-      @user = User.find params[:user_id]
+      @user = User.find cookies[:user_id]
+      @other = User.find params[:id]
+      @messages = Message.where(sender: @user, recipient: @other).or(Message.where(recipient: @user, sender: @other))
 
-      if @user.id.to_s == cookies[:user_id]
-        @other = User.find params[:id]
-        @messages = Message.where(sender: @user, recipient: @other).or(Message.where(recipient: @user, sender: @other))
-
-        render json: { messages: @messages }
-      else
-        render status: :unauthorized,
-               json: { error: 'User validation error' }
-      end
+      render json: { messages: @messages }
     end
-
-    ## In case it's needed, not in routes.rb right now
-    # def new
-    #   @message = Message.new
-
-    #   render json: { success: @message }
-    # end
 
     def create
       @message = Message.new(message_params)
