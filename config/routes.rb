@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   namespace :api do # /api/data
     resources :users, only: [:show] do
-      resources :registrations, only: [:destroy]
       resources :messages, only: [:index, :show, :create]
     end
     resource :genres, only: [:show]
@@ -21,10 +20,9 @@ Rails.application.routes.draw do
       resources :genre, only: [:show]
     end
 
-    resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-      resources :registrations, only: [:create]
-    end
+    resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
+    resources :registrations, only: [:create, :destroy]
     resources :talent_profiles, only: [:index, :new, :create, :show, :edit, :update]
     resources :gigs, only: [:create, :update]
   end
