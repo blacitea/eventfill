@@ -51,8 +51,8 @@ TalentProfile.create!(user_id: 1, genre_id: 1, location_id: 1, image_url: 'https
 TalentProfile.create!(user_id: 1, genre_id: 2, location_id: 1, image_url: 'https://image.shutterstock.com/mosaic_250/2797510/600200732/stock-photo-portrait-of-happy-fashionable-handsome-man-in-jeans-shirt-crossing-hands-and-look-at-camera-600200732.jpg', description: 'Comic artist', personal_link: 'me@comics.com', open_for_booking: true, name: 'JimothyComics')
 TalentProfile.create!(user_id: 3, genre_id: 3, location_id: 3, image_url: 'https://static01.nyt.com/images/2019/09/04/business/04chinaclone-01/04chinaclone-01-videoSixteenByNineJumbo1600.jpg', description: 'Crafter', personal_link: 'me@crafts.com', open_for_booking: false, name: 'Prudence Craftwell')
 
-Gig.create!(talent_profile_id: 2, event_id: 1, time: '2020-10-13 14:00:00', description: 'Performing, ya!', accepted: true, rejected: nil)
-Gig.create!(talent_profile_id: 3, event_id: 2, time: '2020-09-20 15:00:00', description: 'Drawings galore~', accepted: nil, rejected: true)
+Gig.create!(talent_profile_id: 2, event_id: 1, description: 'Performing, ya!', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 3, event_id: 2, description: 'Drawings galore~', accepted: nil, rejected: true)
 
 Registration.create!(user_id: 2, event_id: 1)
 Registration.create!(user_id: 2, event_id: 2)
