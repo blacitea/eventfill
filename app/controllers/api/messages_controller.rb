@@ -23,6 +23,7 @@ module API
 
     def create
       @message = Message.new(message_params)
+      @message[:sender_id] = cookies[:user_id]
 
       render json: { success: @message } if @message.save!
     end
@@ -31,7 +32,7 @@ module API
 
     def message_params
       params.require(:message)
-            .permit(:sender_id, :recipient_id, :content, :read_by_recipient)
+            .permit(:recipient_id, :content, :read_by_recipient)
     end
 
     def generate_contacts(user, messages)
