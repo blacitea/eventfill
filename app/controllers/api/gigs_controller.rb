@@ -13,7 +13,7 @@ module API
       else
         @gig = Gig.new(gig_params)
         if authorised_poster?(@gig)
-          render json: @gig if @gig.save!
+          render json: { gig: @gig, invitee: @gig.talent_profile.name } if @gig.save!
         else
           render status: :unauthorized,
                  json: { error: 'User validation error' }
