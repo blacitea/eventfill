@@ -21,50 +21,51 @@ module API
       render json: { event: @event, talents: @talents, attendees: @attendee_count }
     end
 
-    def new
-      @event = Event.new
+    # def new
+    #   @event = Event.new
 
-      render json: { success: @event }
-    end
+    #   render json: { success: @event }
+    # end
 
     def create
       @event = Event.new(event_params)
       render json: { success: @event } if @event.save!
     end
 
-    def edit
-      @event = Event.find params[:id]
-    end
+    # def edit
+    #   @event = Event.find params[:id]
+    # end
 
     def update
       @event = Event.find params[:id]
-
       if @event.user_id.to_s == cookies[:user_id]
+        status = 'updated'
         @event.update!(event_params)
-        render json: { success: @event }
+        status = 'cancelled' if event_params[:cancelled]
+
+        render json: { success: "#{@event.name} #{status}" }
       else
         render status: :unauthorized,
                json: { error: 'Could not update event. Are you sure it belongs to you?' }
       end
     end
 
-    def destroy
-      @event = Event.find params[:id]
-      if @event.user_id.to_s == cookies[:user_id] && cancel_event(@event)
-        @event.destroy!
-        render json: { success: "#{@event.name} cancelled" }
-      else
-        render status: :unauthorized,
-               json: { error: 'Could not delete event. Are you sure it belongs to you?' }
-      end
-    end
+    # def destroy
+    #   @event = Event.find params[:id]
+    #   if @event.user_id.to_s == cookies[:user_id] && cancel_event(@event)
+    #     @event.destroy!
+    #     render json: { success: "#{@event.name} cancelled" }
+    #   else
+    #     render status: :unauthorized,
+    #            json: { error: 'Could not delete event. Are you sure it belongs to you?' }
+    #   end
+    # end
 
     private
 
     def event_params
       params.require(:event)
-            .permit(:user_id, :genre_id, :location_id, :image_url, :name, :start, :end, :max_attendees,
-                    :description, :accepting_talent)
+            .permit(:user_id, :genre_id, :location_id, :image_url, :name, :start, :end, :max_attendees, :description, :accepting_talent, :cancelled)
     end
 
     def cancel_event(event)
@@ -81,7 +82,6 @@ module API
           sender: User.find(0), recipient: attendee,
           content: "#{attendee.name}: Event '#{@event.name}' has been cancelled! :("
         )
-        @registration.destroy!
       end
     end
 
@@ -94,9 +94,7 @@ module API
           sender: User.find(0), recipient: talent.user,
           content: "#{talent.name}: Event '#{@event.name}' + associated gigs have been cancelled! :("
         )
-        @gig.rejected = true
-        @gig.accepted = nil
-        @gig.save!
+        @gig.update!(rejected: true, accepted: nil)
       end
     end
   end
