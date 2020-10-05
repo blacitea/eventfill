@@ -12,7 +12,10 @@ module API
 
     def show
       @talent_profile = TalentProfile.find params[:id]
-      @events = @talent_profile.gigs.joins(:event).select('gigs.id, events.id, events.name, events.description, events.start').where('gigs.accepted = true and events.cancelled is null')
+      @events = @talent_profile.gigs
+                               .joins(:event)
+                               .select('gigs.id, events.id, events.name, events.description, events.start')
+                               .where('gigs.accepted = true and events.cancelled is null')
       @gig_count = @talent_profile.gigs.count
 
       render json: { talent: @talent_profile, events: @events, gig_count: @gig_count }
