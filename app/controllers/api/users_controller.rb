@@ -19,9 +19,15 @@ module API
     private
 
     def display_user_info(user)
-      @events = user.events
-      @registrations = user.registrations
-      @gigs = user.gigs.group_by { |gig| gig.talent_profile.name }
+      @events = user.events.select(:id, :name, :description, :start, :end)
+      @registrations = user.registrations.joins(:event).select(:id, :event_id, :name, :description, :start, :end)
+      @gigs = user.gigs
+                  .joins(:event, :talent_profile)
+                  .select('gigs.id, event_id, talent_profile_id,
+                    events.name as event_name, events.description,
+                    events.start, events.end')
+                  .order('events.start ASC')
+                  .group_by { |gig| gig.talent_profile.name }
 
       { user: user, owned_events: @events, attending: @registrations, gigs: @gigs }
     end
