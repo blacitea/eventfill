@@ -22,19 +22,9 @@ module API
       render json: { talent: @talent_profile, events: @events, gig_count: @gig_count }
     end
 
-    def new
-      @talent_profile = TalentProfile.new
-
-      render json: { success: @talent_profile }
-    end
-
     def create
       @talent_profile = TalentProfile.new(talent_profile_params)
       render json: { success: @talent_profile } if @talent_profile.save!
-    end
-
-    def edit
-      @talent_profile = TalentProfile.find params[:id]
     end
 
     def update

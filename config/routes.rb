@@ -19,14 +19,10 @@ Rails.application.routes.draw do
       resources :genre, only: [:show]
     end
 
-    resources :messages, only: [:index, :show, :create]
-    resources :events, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :messages, except: [:update, :destroy]
+    resources :events, except: [:destroy]
     resources :registrations, only: [:create, :destroy]
-    resources :talent_profiles, only: [:index, :new, :create, :show, :edit, :update]
+    resources :talent_profiles, except: [:destroy]
     resources :gigs, only: [:create, :update]
   end
-
-  # get '*path', to: 'static_pages#fallback_index_html', constraints: lambda { |request|
-  #   !request.xhr? && request.format.html?
-  # }
 end
