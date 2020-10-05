@@ -41,8 +41,10 @@ module API
       if @event.user_id.to_s == cookies[:user_id]
         status = 'updated'
         @event.update!(event_params)
-        status = 'cancelled' if event_params[:cancelled]
-
+        if event_params[:cancelled]
+          status = 'cancelled'
+          cancel_event(@event)
+        end
         render json: { success: "#{@event.name} #{status}" }
       else
         render status: :unauthorized,
