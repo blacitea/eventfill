@@ -6,19 +6,22 @@ module API
     include ActionController::Cookies
 
     def index
-      @events = {}
-      @events[:all] = Event.all.order(start: :asc)
-      @events[:upcoming] = Event.where('start > ?', DateTime.now).order(start: :asc)
+      @events = Event.where('cancelled is null and start > ?', DateTime.now)
+                     .order(start: :asc)
 
       render json: @events
     end
 
     def show
       @event = Event.find params[:id]
-      @talents = @event.gigs.where(accepted: true).map(&:talent_profile)
-      @attendee_count = @event.registrations.count
+      if @event.cancelled
+        render json: { 'Could not find event, perhaps it has been cancelled?' }
+      else
+        @talents = @event.gigs.where(accepted: true).map(&:talent_profile)
+        @attendee_count = @event.registrations.count
 
-      render json: { event: @event, talents: @talents, attendees: @attendee_count }
+        render json: { event: @event, talents: @talents, attendees: @attendee_count }
+      end
     end
 
     # def new
