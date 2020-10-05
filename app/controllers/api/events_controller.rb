@@ -71,7 +71,8 @@ module API
 
     def event_params
       params.require(:event)
-            .permit(:user_id, :genre_id, :location_id, :image_url, :name, :start, :end, :max_attendees, :description, :accepting_talent, :cancelled)
+            .permit(:user_id, :genre_id, :location_id, :image_url, :name, :start, :end,
+                    :max_attendees, :description, :accepting_talent, :cancelled)
     end
 
     def cancel_event(event)
