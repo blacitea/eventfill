@@ -15,7 +15,8 @@ module API
     def show
       @event = Event.find params[:id]
       if @event.cancelled
-        render json: { 'Could not find event, perhaps it has been cancelled?' }
+        render status: :not_found,
+               json: { error: 'Could not find event, perhaps it has been cancelled?' }
       else
         @talents = @event.gigs.where(accepted: true).map(&:talent_profile)
         @attendee_count = @event.registrations.count
