@@ -25,4 +25,8 @@ Rails.application.routes.draw do
     resources :talent_profiles, except: [:destroy]
     resources :gigs, only: [:create, :update]
   end
+
+  get '*path', to: "static_pages#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
 end
