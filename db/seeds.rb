@@ -42,7 +42,6 @@ User.create!(name: 'Nicola Jones', email: 'nicola@cool.com', location_id: 2)
 User.create!(name: 'Prudence Humpalot', email: 'prudence@cats.com', location_id: 3)
 User.create!(name: 'Tiffany Smith', email: 'thomas@cool.com', location_id: 1)
 User.create!(name: 'Sally Baker', email: 'sabaker@cool.com', location_id: 1)
-
 User.create!(name: 'Lois Lane', email: 'llane@cool.com', location_id: 1)
 User.create!(name: 'Clark Kent', email: 'nicjea@cool.com', location_id: 2)
 User.create!(name: 'Dixie Catwell', email: 'prdfeence@cats.com', location_id: 3)
@@ -59,13 +58,48 @@ User.create!(name: 'Sylvia Kent', email: 'skent@yaho.com', location_id: 3)
 User.create!(name: 'Muirs Smith', email: 'smithm@cool.com', location_id: 1)
 User.create!(name: 'Dixie Baker', email: 'sally@ymail.com', location_id: 1)
 
-Message.create!(sender_id: 1, recipient_id: 2, content: 'Hello')
-Message.create!(sender_id: 2, recipient_id: 1, content: 'Hey!!')
-Message.create!(sender_id: 1, recipient_id: 2, content: 'Bye!')
-Message.create!(sender_id: 2, recipient_id: 1, content: 'Hello')
-Message.create!(sender_id: 3, recipient_id: 2, content: 'Sup')
-Message.create!(sender_id: 3, recipient_id: 1, content: 'Perform?')
-Message.create!(sender_id: 2, recipient_id: 4, content: 'Commission?')
+Message.create!(sender_id: 1, recipient_id: 2, content: 'Hey are you going this Sat?')
+Message.create!(sender_id: 2, recipient_id: 1, content: 'Yeah sure!')
+Message.create!(sender_id: 1, recipient_id: 2, content: 'Nice I will get ticket now!')
+Message.create!(sender_id: 2, recipient_id: 1, content: 'Sounds good!')
+
+
+Message.create!(sender_id: 2, recipient_id: 3, content: 'Hi, are you busy?')
+Message.create!(sender_id: 3, recipient_id: 2, content: 'No, what\'s up')
+Message.create!(sender_id: 2, recipient_id: 3, content: 'Are you performing tomorrow?')
+Message.create!(sender_id: 3, recipient_id: 2, content: 'Yes! You gonna come watch?')
+
+Message.create!(sender_id: 4, recipient_id: 3, content: 'Hey I really like your show last week!')
+Message.create!(sender_id: 4, recipient_id: 3, content: 'When are you performing next?')
+Message.create!(sender_id: 3, recipient_id: 4, content: 'Hello and thank you.')
+Message.create!(sender_id: 3, recipient_id: 4, content: 'I will be doing another gig next Friday in Vancouver.')
+
+Message.create!(sender_id: 5, recipient_id: 1, content: 'Yo would you like to perform?')
+Message.create!(sender_id: 5, recipient_id: 1, content: 'I have a show coming Dec, you should come!')
+Message.create!(sender_id: 1, recipient_id: 5, content: 'Sure, send me an invitation and I will check it out.')
+
+Message.create!(sender_id: 4, recipient_id: 2, content: 'Hey how are you? I noticed you have this event next month.')
+Message.create!(sender_id: 2, recipient_id: 4, content: 'Hi! Yeah it\'s for magic.')
+Message.create!(sender_id: 2, recipient_id: 4, content: 'You wanna join?')
+Message.create!(sender_id: 4, recipient_id: 2, content: 'Yes actually, I want to perform in your event!')
+Message.create!(sender_id: 2, recipient_id: 4, content: 'Nice! I will send you an invitation now.')
+Message.create!(sender_id: 2, recipient_id: 4, content: 'Thank you for reaching out!')
+
+
+Message.create!(sender_id: 4, recipient_id: 3, content: 'Did you enjoy the show?')
+Message.create!(sender_id: 4, recipient_id: 5, content: 'Did you enjoy the show?')
+
+Message.create!(sender_id: 4, recipient_id: 5, content: 'I think it was excellent!')
+Message.create!(sender_id: 5, recipient_id: 4, content: 'Yes it was awesome!')
+Message.create!(sender_id: 5, recipient_id: 4, content: 'Thank you for letting me know about it!')
+Message.create!(sender_id: 5, recipient_id: 4, content: 'I really had fun.')
+
+
+
+
+
+
+
 
 Event.create!(user_id: 1, genre_id: 1, location_id: 1, image_url: 'https://i.pcmag.com/imagery/lineups/06PiprC5eiYhlpaNS6N0sbP-1.1569492872.fit_lim.fit_lim.size_956x99999.jpg', name: 'GameCon Vancouver 2020', start: '2020-10-13 12:00:00', end: '2020-10-13 22:00:00', max_attendees: 200, description: 'Come to this!', accepting_talent: true)
 Event.create!(user_id: 1, genre_id: 3, location_id: 1, image_url: 'https://www.thespruce.com/thmb/Pot7VQ8sCBiR4virPcehRZYbGq8=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/-assortment-of-scrapbooking-tools-including-colored-paper--pens--and-scissors-click-below-for-more-of-my-scrapbooking-and-arts-and-crafts-images--936822170-ed08f5a6b9d74a0191f16a6f3dd5a272.jpg', name: 'CraftCon Vancouver 2020', start: '2020-09-20 10:00:00', end: '2020-09-20 19:00:00', max_attendees: 120, description: 'Come to this also!', accepting_talent: false)
