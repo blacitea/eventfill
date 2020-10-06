@@ -17,9 +17,12 @@ TalentProfile.destroy_all
 Gig.destroy_all
 Registration.destroy_all
 
-Genre.create!(name: 'Video Games')
+Genre.create!(name: 'Anime and Manga')
+Genre.create!(name: 'Collectable Card Game')
 Genre.create!(name: 'Comics')
-Genre.create!(name: 'Crafts')
+Genre.create!(name: 'Handcraft')
+Genre.create!(name: 'Tabletop Games')
+Genre.create!(name: 'Video Games')
 
 Location.create!(name: 'Vancouver')
 Location.create!(name: 'Victoria')
@@ -36,9 +39,25 @@ user.save!
 
 User.create!(name: 'Jimothy Muirs', email: 'jimothy@cool.com', location_id: 1)
 User.create!(name: 'Nicola Jones', email: 'nicola@cool.com', location_id: 2)
-User.create!(name: 'Prudence Catwell', email: 'prudence@cats.com', location_id: 3)
-User.create!(name: 'Thomas Smith', email: 'thomas@cool.com', location_id: 1)
-User.create!(name: 'Sally Baker', email: 'sally@cool.com', location_id: 1)
+User.create!(name: 'Prudence Humpalot', email: 'prudence@cats.com', location_id: 3)
+User.create!(name: 'Tiffany Smith', email: 'thomas@cool.com', location_id: 1)
+User.create!(name: 'Sally Baker', email: 'sabaker@cool.com', location_id: 1)
+
+User.create!(name: 'Lois Lane', email: 'llane@cool.com', location_id: 1)
+User.create!(name: 'Clark Kent', email: 'nicjea@cool.com', location_id: 2)
+User.create!(name: 'Dixie Catwell', email: 'prdfeence@cats.com', location_id: 3)
+User.create!(name: 'Thomas Smith', email: 'thofes@cool.com', location_id: 1)
+User.create!(name: 'Sally Kent', email: 'sally@gmail.com', location_id: 1)
+User.create!(name: 'Tiffany Muirs', email: 'jimomur@cool.com', location_id: 1)
+User.create!(name: 'Nicola Case', email: 'nicola@ymail.com', location_id: 2)
+User.create!(name: 'Liza Tree', email: 'prudence@ymail.com', location_id: 3)
+User.create!(name: 'Thomas Kent', email: 'thomas@ymail.com', location_id: 1)
+User.create!(name: 'Penelope Flex', email: 'flex@yo.com', location_id: 1)
+User.create!(name: 'Jimothy Case', email: 'jimothy@yo.com', location_id: 1)
+User.create!(name: 'Nicola Muirs', email: 'nicola@yaho.com', location_id: 2)
+User.create!(name: 'Sylvia Kent', email: 'skent@yaho.com', location_id: 3)
+User.create!(name: 'Muirs Smith', email: 'smithm@cool.com', location_id: 1)
+User.create!(name: 'Dixie Baker', email: 'sally@ymail.com', location_id: 1)
 
 Message.create!(sender_id: 1, recipient_id: 2, content: 'Hello')
 Message.create!(sender_id: 2, recipient_id: 1, content: 'Hey!!')
