@@ -1,5 +1,5 @@
 # Eventfill - Event Coordination App
-> Eventfill is an app to connect event planners, talents (performers, makers, people of interest, vendors, you name it!), and would-be event-goers. Users can make events and/or talent profiles or simply register to attend events.
+Eventfill is an app to connect event planners, talents (performers, makers, people of interest, vendors, you name it!), and would-be event-goers. Users can make events and/or talent profiles or simply register to attend events.
 
 ## Table of contents
 * [General info](#general-info)
@@ -21,7 +21,7 @@ Created as a final project for the Lighthouse Labs Web Development Bootcamp prog
 ### Technologies Used
 - React.js
 - Ruby on Rails
-- PSQL
+- PostgreSQL
 
 ### Requirements
 - Node
@@ -44,11 +44,12 @@ Created as a final project for the Lighthouse Labs Web Development Bootcamp prog
 If you wish to update the client after initial setup, run `git submodule update --remote --merge`
 
 ## Features
-* Browse all events, or by location/type
-* Browse all talents, or by location/type
+* Browse all events, or filter by location/type
+* Browse all talents, or filter by location/type
 * Create and update your own events and/or talent profiles
 * Messaging system, including automatic messages to attendees and scheduled talents if event is cancelled
 * Ability to invite talents to your own events
+* Register to attend an event
 * Quick view of your own events, scheduled gigs, and events you are attending
 * Accept or reject invitations to appear at events
 
@@ -66,7 +67,7 @@ Project is: _in progress_, scope implementation limited by available time
 
 ## Contact
 Created by 
-- Angel
+- Angel -
 - Marisa - Backend API - [@risatronic](https://github.com/risatronic)
 - Quinn - 
 
