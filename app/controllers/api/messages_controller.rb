@@ -32,7 +32,7 @@ module API
 
     def message_params
       params.require(:message)
-            .permit(:recipient_id, :content, :read_by_recipient)
+            .permit(:recipient_id, :content)
     end
 
     def generate_contacts(user, messages)
