@@ -35,6 +35,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
   gem 'rubocop'
+  gem "cypress-rails"
+  gem 'dotenv-rails'
 end
 
 group :development do
