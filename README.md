@@ -55,7 +55,10 @@ If you wish to update the client after initial setup, run `git submodule update 
 * Accept or reject invitations to appear at events
 
 To-do list:
-* Instant messaging
+* Better notification UI
+* Enable talent to approach organizers 
+* Preview on hover 
+* Instant messaging and live video chat
 * Message unread status/count
 * Deployment
 * Ticketing/payment system
@@ -64,12 +67,13 @@ To-do list:
 Project is: _in progress_ - scope implementation limited by available time
 
 ## Inspiration
-*****Angel?????*****
+Passionate about your art but have no where to showcase it?
+Love hosting events and // Updating //
 
 ## Contact
 Created by 
-- Angel -
+- Angel - Frontend - [@blacitea](https://github.com/blacitea)
 - Marisa - Backend API - [@risatronic](https://github.com/risatronic)
-- Quinn - 
+- Quinn - Frontend - [@quinnvoker](https://github.com/quinnvoker)
 
 Feel free to contact us!
