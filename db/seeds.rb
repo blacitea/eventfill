@@ -20,7 +20,7 @@ Registration.destroy_all
 Genre.create!(name: 'Anime and Manga')
 Genre.create!(name: 'Table Top Games')
 Genre.create!(name: 'Comics')
-Genre.create!(name: 'Handcraft')
+Genre.create!(name: 'Handmade Crafts')
 Genre.create!(name: 'Video Games')
 
 Location.create!(name: 'Vancouver')
@@ -38,7 +38,7 @@ user.save!
 
 User.create!(name: 'Jimothy Muirs', email: 'jimothy@cool.com', location_id: 1)
 User.create!(name: 'Nicola Jones', email: 'nicola@cool.com', location_id: 2)
-User.create!(name: 'Prudence Humpalot', email: 'prudence@cats.com', location_id: 3)
+User.create!(name: 'Prudence Richards', email: 'prudence@cats.com', location_id: 3)
 User.create!(name: 'Tiffany Smith', email: 'thomas@cool.com', location_id: 1)
 User.create!(name: 'Sally Baker', email: 'sabaker@cool.com', location_id: 1)
 User.create!(name: 'Lois Lane', email: 'llane@cool.com', location_id: 1)
@@ -54,12 +54,12 @@ User.create!(name: 'Penelope Flex', email: 'flex@yo.com', location_id: 1)
 User.create!(name: 'Jimothy Case', email: 'jimothy@yo.com', location_id: 1)
 User.create!(name: 'Nicola Muirs', email: 'nicola@yaho.com', location_id: 2)
 User.create!(name: 'Sylvia Kent', email: 'skent@yaho.com', location_id: 3)
-User.create!(name: 'Muirs Smith', email: 'smithm@cool.com', location_id: 1)
+User.create!(name: 'Matthew Smith', email: 'smithm@cool.com', location_id: 1)
 User.create!(name: 'Dixie Baker', email: 'sally@ymail.com', location_id: 1)
 
 Message.create!(sender_id: 1, recipient_id: 2, content: 'Hey are you going this Sat?')
 Message.create!(sender_id: 2, recipient_id: 1, content: 'Yeah sure!')
-Message.create!(sender_id: 1, recipient_id: 2, content: 'Nice I will get ticket now!')
+Message.create!(sender_id: 1, recipient_id: 2, content: 'Nice I will get a ticket now!')
 Message.create!(sender_id: 2, recipient_id: 1, content: 'Sounds good!')
 
 
@@ -68,7 +68,7 @@ Message.create!(sender_id: 3, recipient_id: 2, content: 'No, what\'s up')
 Message.create!(sender_id: 2, recipient_id: 3, content: 'Are you performing tomorrow?')
 Message.create!(sender_id: 3, recipient_id: 2, content: 'Yes! You gonna come watch?')
 
-Message.create!(sender_id: 4, recipient_id: 3, content: 'Hey I really like your show last week!')
+Message.create!(sender_id: 4, recipient_id: 3, content: 'Hey I really liked your show last week!')
 Message.create!(sender_id: 4, recipient_id: 3, content: 'When are you performing next?')
 Message.create!(sender_id: 3, recipient_id: 4, content: 'Hello and thank you.')
 Message.create!(sender_id: 3, recipient_id: 4, content: 'I will be doing another gig next Friday in Vancouver.')
@@ -107,10 +107,10 @@ Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commo
 
 
 
-Event.create!(user_id: 3, genre_id: 1, location_id: 5, image_url: '/images/event_3.jpeg', name: 'Demon Slayer', start: '2021-01-01 10:00:00', end: '2021-01-02 19:00:00', max_attendees: 50, description: 'Cosplayers welcome! Join us in this event to share our love and watch the 1st episode of season 3 together! Etiam a rutrum dolor.
+Event.create!(user_id: 3, genre_id: 1, location_id: 5, image_url: '/images/event_3.jpeg', name: 'Demon Slayer', start: '2021-01-01 10:00:00', end: '2021-01-02 19:00:00', max_attendees: 50, description: 'Cosplayers welcome! Join us at this event to share our love and watch the 1st episode of season 3 together! Etiam a rutrum dolor.
 Maecenas tincidunt magna ornare pretium interdum. Vivamus eu dui nec mauris consequat rutrum. Etiam arcu purus, posuere non nunc et, accumsan tincidunt neque. Pellentesque vitae consequat eros. Nulla non justo urna. Nam nibh ipsum, dignissim sit amet nunc eu, pharetra eleifend diam.', accepting_talent: false)
 
-Event.create!(user_id: 9, genre_id: 1, location_id: 2, image_url: '/images/event_4.jpg', name: 'Volleyball Love!', start: '2020-10-21 10:00:00', end: '2020-10-23 19:00:00', max_attendees: 20, description: 'Celebrating the new season, we are going to have some volleyball match and watch the show after our games!
+Event.create!(user_id: 9, genre_id: 1, location_id: 2, image_url: '/images/event_4.jpg', name: 'Volleyball Love!', start: '2020-10-21 10:00:00', end: '2020-10-23 19:00:00', max_attendees: 20, description: 'Celebrating the new season, we are going to have some volleyball matches and watch the show after our games!
 Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. ', accepting_talent: false)
 
 
@@ -146,7 +146,7 @@ Event.create!(user_id: 3, genre_id: 3, location_id: 4, image_url: '/images/event
 
 Event.create!(user_id: 4, genre_id: 4, location_id: 1, image_url: '/images/event_13.png', name: 'Cute Kittens!', start: '2020-10-11 10:00:00', end: '2020-10-12 19:00:00', max_attendees: 10, description: 'My first handcrafting event! Come see my art and learn how to make yours. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis congue magna ut pulvinar. Integer porttitor risus eu diam aliquam maximus. Sed vestibulum purus semper, eleifend elit eget, bibendum nisi. Sed commodo dolor vitae justo tempus hendrerit. Vivamus mollis, magna eget tempor laoreet, neque risus pulvinar erat, vel porttitor metus dolor non lacus. Duis elementum lacus nec bibendum dictum. Suspendisse augue ante, rhoncus quis facilisis nec, varius quis magna. ', accepting_talent: false)
 
-Event.create!(user_id: 1, genre_id: 4, location_id: 2, image_url: '/images/event_14.jpeg', name: 'Knitting fun!', start: '2020-11-07 10:00:00', end: '2020-11-09 19:00:00', max_attendees: 20, description: 'I am going to hold a small knitting class, if you know your basic and want to get better, bring your yarn and needle! Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
+Event.create!(user_id: 1, genre_id: 4, location_id: 2, image_url: '/images/event_14.jpeg', name: 'Knitting fun!', start: '2020-11-07 10:00:00', end: '2020-11-09 19:00:00', max_attendees: 20, description: 'I am going to hold a small knitting class, if you know the basics and want to get better, bring your yarn and needle! Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
 
 Event.create!(user_id: 1, genre_id: 4, location_id: 3, image_url: '/images/event_15.jpeg', name: 'Perfect Fit', start: '2020-11-29 10:00:00', end: '2020-11-30 19:00:00', max_attendees: 5, description: 'Spend your weekend with us and we will make sure you walk away with a pair of perfect fits. Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
 
@@ -156,29 +156,29 @@ Event.create!(user_id: 1, genre_id: 4, location_id: 3, image_url: '/images/event
 Event.create!(user_id: 12, genre_id: 5, location_id: 1, image_url: '/images/event_16.jpg', name: 'Ranked Battles!', start: '2020-10-15 10:00:00', end: '2020-10-17 19:00:00', max_attendees: 20, description: 'Pokémon Sword and Pokémon Shield Ranked Battles October Season Is Here
 Battle your fellow Trainers to move up the leaderboard and earn helpful in-game rewards. Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
 
-Event.create!(user_id: 12, genre_id: 5, location_id: 2, image_url: '/images/event_17.jpg', name: 'Squad Strike Teams 3 vs 3!', start: '2020-10-26 10:00:00', end: '2020-10-27 19:00:00', max_attendees: 50, description: 'Gather your team and complete in this 3 vs 3 championship! Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
+Event.create!(user_id: 12, genre_id: 5, location_id: 2, image_url: '/images/event_17.jpg', name: 'Squad Strike Teams 3 vs 3!', start: '2020-10-26 10:00:00', end: '2020-10-27 19:00:00', max_attendees: 50, description: 'Gather your team and compete in this 3 vs 3 championship! Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
 
 Event.create!(user_id: 3, genre_id: 5, location_id: 4, image_url: '/images/event_18.jpg', name: 'ASL Season 10 Final!', start: '2020-12-05 10:00:00', end: '2020-12-06 19:00:00', max_attendees: 200, description: 'The AfreecaTV Starleague Season 10 (아프리카TV 스타리그 시즌10) is coming to an end! Come watch the final and cheer for your favourite race! Etiam a rutrum dolor. Maecenas tincidunt magna ornare pretium interdum. Vivamus eu dui nec mauris consequat rutrum. Etiam arcu purus, posuere non nunc et, accumsan tincidunt neque. Pellentesque vitae consequat eros. Nulla non justo urna. Nam nibh ipsum, dignissim sit amet nunc eu, pharetra eleifend diam.', accepting_talent: false)
 
-Event.create!(user_id: 4, genre_id: 5, location_id: 1, image_url: '/images/event_19.jpg', name: 'Van TI', start: '2020-11-25 10:00:00', end: '2020-11-27 19:00:00', max_attendees: 100, description: 'Are you disappointed that TI was cancelled? We too! Come play and we will have our Van TI instead!
+Event.create!(user_id: 4, genre_id: 5, location_id: 1, image_url: '/images/event_19.jpg', name: 'Van TI', start: '2020-11-25 10:00:00', end: '2020-11-27 19:00:00', max_attendees: 100, description: 'Are you disappointed that TI was cancelled? Us too! Come play and we will have our own Van TI instead!
 Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
 
 
-Event.create!(user_id: 5, genre_id: 3, location_id: 1, image_url: '/images/event_20.jpg', name: 'Marvel Vancouver', start: '2020-10-30 10:00:00', end: '2020-10-31 19:00:00', max_attendees: 50, description: 'Bring your beloved comic book and be ready to exchange for someone\'s favourite! We aim to promote comic culture in Vancouver! Love and Share!
+Event.create!(user_id: 5, genre_id: 3, location_id: 1, image_url: '/images/event_20.jpg', name: 'Marvel Vancouver', start: '2020-10-30 10:00:00', end: '2020-10-31 19:00:00', max_attendees: 50, description: 'Bring your beloved comic books and be ready to exchange for someone else\'s favourites! We aim to promote comic culture in Vancouver! Love and Share!
 Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. ', accepting_talent: false)
 
 
 TalentProfile.create!(user_id: 1, genre_id: 1, location_id: 1, image_url: '/images/talent_1.jpeg', description: 'Speed runner! I am open for charity events, contact me!  Aenean viverra est in blandit gravida. Integer bibendum vestibulum ante, quis scelerisque magna vulputate quis. Nulla purus nulla, feugiat ac ante quis, rhoncus sagittis nunc. Nam condimentum velit non sapien hendrerit, vestibulum semper augue facilisis. ', personal_link: 'https://www.twitch.tv/mizkif', open_for_booking: true, name: 'Jimothy Speed')
 
-TalentProfile.create!(user_id: 2, genre_id: 2, location_id: 2, image_url: '/images/talent_2.jpeg', description: 'Need a MC for your event? I can keep the crowd going~ Integer tincidunt leo non augue vulputate tempor. Nam a pretium ipsum. Duis vehicula sodales tortor a suscipit. Maecenas nisi lacus, porttitor et gravida venenatis, viverra at nulla. Phasellus a sapien purus. Vivamus suscipit mollis lacus, ut venenatis risus porta et. Nam ut metus vitae lectus lacinia gravida eu ut nunc.', personal_link: 'https://www.twitch.tv/sykkuno', open_for_booking: true, name: 'Kyuuno')
+TalentProfile.create!(user_id: 2, genre_id: 2, location_id: 2, image_url: '/images/talent_2.jpeg', description: 'Need an MC for your event? I can keep the crowd going~ Integer tincidunt leo non augue vulputate tempor. Nam a pretium ipsum. Duis vehicula sodales tortor a suscipit. Maecenas nisi lacus, porttitor et gravida venenatis, viverra at nulla. Phasellus a sapien purus. Vivamus suscipit mollis lacus, ut venenatis risus porta et. Nam ut metus vitae lectus lacinia gravida eu ut nunc.', personal_link: 'https://www.twitch.tv/sykkuno', open_for_booking: true, name: 'Kyuuno')
 
-TalentProfile.create!(user_id: 2, genre_id: 1, location_id: 1, image_url: '/images/talent_3.jpeg', description: 'Want some performance game demo? I am your player! Maecenas et faucibus ante, non ornare odio. Nullam vitae risus dolor. Sed congue diam interdum est porta, in ullamcorper enim scelerisque. Aenean bibendum semper augue a vestibulum. Pellentesque accumsan eros eros, eget ornare neque scelerisque eu. Donec ut pulvinar felis. ', personal_link: 'https://www.twitch.tv/esl_csgo', open_for_booking: true, name: 'CSGO')
+TalentProfile.create!(user_id: 2, genre_id: 1, location_id: 1, image_url: '/images/talent_3.jpeg', description: 'Want some performance game demos? I am your player! Maecenas et faucibus ante, non ornare odio. Nullam vitae risus dolor. Sed congue diam interdum est porta, in ullamcorper enim scelerisque. Aenean bibendum semper augue a vestibulum. Pellentesque accumsan eros eros, eget ornare neque scelerisque eu. Donec ut pulvinar felis. ', personal_link: 'https://www.twitch.tv/esl_csgo', open_for_booking: true, name: 'CSGO')
 
-TalentProfile.create!(user_id: 3, genre_id: 3, location_id: 1, image_url: '/images/talent_4.jpeg', description: 'Game designer! I like to talk about video game and developers.  Nam sed placerat ligula, at mattis tortor. Integer rutrum tellus ornare finibus ullamcorper. Pellentesque convallis quam non tellus ultrices pulvinar. In gravida vehicula neque, sed condimentum sapien tempus in. Integer aliquet lobortis arcu ut pulvinar. Curabitur at ipsum tristique augue hendrerit faucibus eu eu leo.', personal_link: 'https://twitter.com/elbaz_eran', open_for_booking: true, name: 'Code Games')
+TalentProfile.create!(user_id: 3, genre_id: 3, location_id: 1, image_url: '/images/talent_4.jpeg', description: 'Game designer! I like to talk about video games and developers.  Nam sed placerat ligula, at mattis tortor. Integer rutrum tellus ornare finibus ullamcorper. Pellentesque convallis quam non tellus ultrices pulvinar. In gravida vehicula neque, sed condimentum sapien tempus in. Integer aliquet lobortis arcu ut pulvinar. Curabitur at ipsum tristique augue hendrerit faucibus eu eu leo.', personal_link: 'https://twitter.com/elbaz_eran', open_for_booking: true, name: 'Code Games')
 
 TalentProfile.create!(user_id: 4, genre_id: 4, location_id: 1, image_url: '/images/talent_5.jpeg', description: 'You want me for your event, you know it. Fusce laoreet et eros sed accumsan. Integer finibus sit amet ex sed iaculis. Suspendisse malesuada, diam eget imperdiet consequat, est elit varius nisl, consequat imperdiet magna massa in lorem. Nulla congue enim et orci pellentesque, sit amet sagittis purus faucibus. ', personal_link: 'https://www.youtube.com/channel/UC4YaOt1yT-ZeyB0OmxHgolA', open_for_booking: true, name: 'AiChan')
 
-TalentProfile.create!(user_id: 5, genre_id: 2, location_id: 2, image_url: '/images/talent_6.jpeg', description: 'I make monster music that rock your events! Pellentesque pulvinar odio quis nisi tempor, ac tristique quam ullamcorper. Ut posuere leo in massa ornare, ut elementum magna cursus. Donec in magna eu neque posuere accumsan. Sed sit amet ante sit amet sapien mattis euismod. Suspendisse ut augue accumsan, vulputate eros vitae, hendrerit tortor.', personal_link: 'https://soundcloud.com/monstercat', open_for_booking: true, name: 'MonsCat')
+TalentProfile.create!(user_id: 5, genre_id: 2, location_id: 2, image_url: '/images/talent_6.jpeg', description: 'I make monster music that will rock your events! Pellentesque pulvinar odio quis nisi tempor, ac tristique quam ullamcorper. Ut posuere leo in massa ornare, ut elementum magna cursus. Donec in magna eu neque posuere accumsan. Sed sit amet ante sit amet sapien mattis euismod. Suspendisse ut augue accumsan, vulputate eros vitae, hendrerit tortor.', personal_link: 'https://soundcloud.com/monstercat', open_for_booking: true, name: 'MonsCat')
 
 TalentProfile.create!(user_id: 5, genre_id: 1, location_id: 2, image_url: '/images/talent_7.jpeg', description: 'Hololive-EN artist. Sharrrrrrrrrk! Duis scelerisque felis non nunc tristique efficitur. Donec congue a purus eget gravida. Etiam commodo arcu eget nisl porttitor gravida. Phasellus ut vulputate ex. Donec iaculis libero est, eu vehicula dui interdum vitae. Duis in quam in nisi dictum molestie et a leo. Aenean venenatis purus tellus, ac ', personal_link: 'https://www.youtube.com/channel/UCoSrY_IQQVpmIRZ9Xf-y93g', open_for_booking: true, name: 'Gawr Gura')
 
@@ -194,7 +194,7 @@ TalentProfile.create!(user_id: 3, genre_id: 2, location_id: 5, image_url: '/imag
 Gig.create!(talent_profile_id: 2, event_id: 1, description: 'Would you care to join us?', accepted: nil, rejected: nil)
 Gig.create!(talent_profile_id: 3, event_id: 1, description: 'I want to invite you to our event!', accepted: nil, rejected: nil)
 Gig.create!(talent_profile_id: 4, event_id: 1, description: '', accepted: true, rejected: nil)
-Gig.create!(talent_profile_id: 5, event_id: 1, description: 'I enjoy your show and I want you in ours!', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 5, event_id: 1, description: 'I enjoyed your show and I want you in ours!', accepted: true, rejected: nil)
 
 Gig.create!(talent_profile_id: 1, event_id: 2, description: 'Would you care to join us?', accepted: nil, rejected: nil)
 Gig.create!(talent_profile_id: 3, event_id: 2, description: '', accepted: true, rejected: nil)
