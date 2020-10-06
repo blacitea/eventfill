@@ -25,20 +25,10 @@ module API
       end
     end
 
-    # def new
-    #   @event = Event.new
-
-    #   render json: { success: @event }
-    # end
-
     def create
       @event = Event.new(event_params)
       render json: { success: @event } if @event.save!
     end
-
-    # def edit
-    #   @event = Event.find params[:id]
-    # end
 
     def update
       @event = Event.find params[:id]
@@ -55,17 +45,6 @@ module API
                json: { error: 'Could not update event. Are you sure it belongs to you?' }
       end
     end
-
-    # def destroy
-    #   @event = Event.find params[:id]
-    #   if @event.user_id.to_s == cookies[:user_id] && cancel_event(@event)
-    #     @event.destroy!
-    #     render json: { success: "#{@event.name} cancelled" }
-    #   else
-    #     render status: :unauthorized,
-    #            json: { error: 'Could not delete event. Are you sure it belongs to you?' }
-    #   end
-    # end
 
     private
 

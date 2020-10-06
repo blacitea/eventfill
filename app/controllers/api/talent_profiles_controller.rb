@@ -14,26 +14,17 @@ module API
       @talent_profile = TalentProfile.find params[:id]
       @events = @talent_profile.gigs
                                .joins(:event)
-                               .select('gigs.id, events.id, events.name, events.description, events.start')
+                               .select('gigs.id, events.id, events.name, events.description, events.start,
+                                       events.end, events.image_url')
                                .where('gigs.accepted = true and events.cancelled is null')
       @gig_count = @talent_profile.gigs.count
 
       render json: { talent: @talent_profile, events: @events, gig_count: @gig_count }
     end
 
-    def new
-      @talent_profile = TalentProfile.new
-
-      render json: { success: @talent_profile }
-    end
-
     def create
       @talent_profile = TalentProfile.new(talent_profile_params)
       render json: { success: @talent_profile } if @talent_profile.save!
-    end
-
-    def edit
-      @talent_profile = TalentProfile.find params[:id]
     end
 
     def update
