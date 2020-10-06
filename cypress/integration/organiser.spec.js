@@ -106,18 +106,41 @@ describe('The Home Page', () => {
 		// Go to user profile and check My Events
 		cy.get('.nav-action').last().click();
 		cy.get('.dropdown__login a:last').click();
+
+		// Click the My Events button to toggle display
 		cy.contains('My Events').click();
+		cy.contains('Perfect Fit').click();
+
+		// Redirect to event show page
+		cy.contains('Perfect Fit');
+		cy.contains('Handmade Crafts event in Montreal');
+		cy.contains('Remaining spots:');
 
 		// Click invite talent button will redirect to browse talent page
 		cy.get('.button-explore-btn').click();
 		cy.contains('Explore Talents');
+		cy.contains('Kyuuno');
 
 		// Can filter with location
 		cy.get('select').first().select('Vancouver');
 		cy.should('not.contain', 'Kyuuno');
 
-		//
+		// Click a talent picture will redirect to talent show page
 		cy.contains('AiChan').click();
+		cy.contains('Handmade Crafts talent in Vancouver');
+
+		// Open up modal with invitation form
 		cy.contains('Invite To Event').click();
+		cy.contains('Send Invitation');
+		cy.get('.talent-name').should('contain', 'AiChan');
+
+		// Error if no event selected
+		// cy.get('.form-submit').click();
+		// cy.contains('Event required to send invitation.');
+
+		// Success submit if event selected
+		// cy.get('select[name=event_id]').select('Perfect Fit');
+		// cy.get('.form-submit').click();
+		// cy.contains('Invitation sent');
 	});
 });
