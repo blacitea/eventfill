@@ -22,6 +22,7 @@ Created as a final project for the Lighthouse Labs Web Development Bootcamp prog
 - React.js
 - Ruby on Rails
 - PostgreSQL
+- SCSS
 
 ### Requirements
 - Node
@@ -49,7 +50,7 @@ If you wish to update the client after initial setup, run `git submodule update 
 * Create and update your own events and/or talent profiles
 * Messaging system, including automatic messages to attendees and scheduled talents if event is cancelled
 * Ability to invite talents to your own events
-* Register to attend an event
+* Register to attend an event and later cancel registration if desired
 * Quick view of your own events, scheduled gigs, and events you are attending
 * Accept or reject invitations to appear at events
 
@@ -57,10 +58,10 @@ To-do list:
 * Instant messaging
 * Message unread status/count
 * Deployment
-........
+* Ticketing/payment system
 
 ## Status
-Project is: _in progress_, scope implementation limited by available time
+Project is: _in progress_ - scope implementation limited by available time
 
 ## Inspiration
 *****Angel?????*****
