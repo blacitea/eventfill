@@ -27,20 +27,24 @@ Location.create!(name: 'Montreal')
 Location.create!(name: 'Toronto')
 Location.create!(name: 'Calgary')
 
+user = User.new(name: 'System', email: 'support@eventfill.com', location_id: 1)
+user.id = 0
+user.save!
+
+## keep above this line please! (can add to genres and locations but locations must exist before users)
+## best to keep all remaining sections in current order and just change data, to prevent errors
+
 User.create!(name: 'Jimothy Muirs', email: 'jimothy@cool.com', location_id: 1)
 User.create!(name: 'Nicola Jones', email: 'nicola@cool.com', location_id: 2)
 User.create!(name: 'Prudence Catwell', email: 'prudence@cats.com', location_id: 3)
 User.create!(name: 'Thomas Smith', email: 'thomas@cool.com', location_id: 1)
 User.create!(name: 'Sally Baker', email: 'sally@cool.com', location_id: 1)
-user = User.new(name: 'System', email: 'support@eventfill.com', location_id: 1)
-user.id = 0
-user.save!
 
-Message.create!(sender_id: 1, recipient_id: 2, content: 'Hello', read_by_recipient: true)
-Message.create!(sender_id: 2, recipient_id: 1, content: 'Hey!!', read_by_recipient: true)
-Message.create!(sender_id: 1, recipient_id: 2, content: 'Bye!', read_by_recipient: false)
+Message.create!(sender_id: 1, recipient_id: 2, content: 'Hello')
+Message.create!(sender_id: 2, recipient_id: 1, content: 'Hey!!')
+Message.create!(sender_id: 1, recipient_id: 2, content: 'Bye!')
 Message.create!(sender_id: 2, recipient_id: 1, content: 'Hello')
-Message.create!(sender_id: 3, recipient_id: 2, content: 'Sup', read_by_recipient: true)
+Message.create!(sender_id: 3, recipient_id: 2, content: 'Sup')
 Message.create!(sender_id: 3, recipient_id: 1, content: 'Perform?')
 Message.create!(sender_id: 2, recipient_id: 4, content: 'Commission?')
 
