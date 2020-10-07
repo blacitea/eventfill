@@ -322,17 +322,17 @@ Registration.create!(user_id: 7, event_id: 8)
 Registration.create!(user_id: 7, event_id: 9)
 Registration.create!(user_id: 7, event_id: 10)
 
-
 ## Seeds for demo
 
-User.create!(name: 'Blacitea', email: 'blacitea@gmail.com', location_id: 1) #21
-User.create!(name: 'Quinnvoker', email: 'quinnvoker@gmail.com', location_id: 2) #22
-User.create!(name: 'Risatronic', email: 'mcr.doig@gmail.com', location_id: 2) #23
+User.create!(name: 'Blacitea', email: 'blacitea@gmail.com', location_id: 1) # 21
+User.create!(name: 'Quinnvoker', email: 'quinnvoker@gmail.com', location_id: 2) # 22
+User.create!(name: 'Marisa', email: 'mcr.doig@gmail.com', location_id: 2) # 23
 
 Registration.create!(user_id: 21, event_id: 10)
 
 TalentProfile.create!(user_id: 23, genre_id: 5, location_id: 2, image_url: '/images/talent_marisa.jpg', description: 'Video game commentater/player in Victoria, BC. Preferred genres include RPGs of all kinds, fighting games, turn-based strategy, simulations, and puzzles. Bonus for cat themes!', personal_link: 'https://twitter.com/smolrobots', open_for_booking: true, name: 'Risatronic')
 
-
 Gig.create!(talent_profile_id: 11, event_id: 16, description: 'Will you perform?', accepted: true, rejected: nil)
 Gig.create!(talent_profile_id: 11, event_id: 19, description: 'Would you care to join us?', accepted: true, rejected: nil)
+
+Message.create!(sender_id: 0, recipient_id: 23, content: "Marisa: Event 'Best Event Ever!' has been cancelled! :(")
