@@ -91,7 +91,7 @@ Message.create!(sender_id: 5, recipient_id: 4, content: 'Yes it was awesome!')
 Message.create!(sender_id: 5, recipient_id: 4, content: 'Thank you for letting me know about it!')
 Message.create!(sender_id: 5, recipient_id: 4, content: 'I really had fun.')
 
-Event.create!(user_id: 1, genre_id: 1, location_id: 1, image_url: '/images/event_1.jpg', name: 'Anime Revolution 2020', start: '2020-07-31 12:00:00', end: '2020-08-03 22:00:00', max_attendees: 200, description: 'Join us for another year of Anime, Anime, and more Anime! Anirevo Summer is officially booked for July 31st to August 2nd 2020 at the Vancouver Convention Centre (West Building)! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis congue magna ut pulvinar. Integer porttitor risus eu diam aliquam maximus. Sed vestibulum purus semper, eleifend elit eget, bibendum nisi. Sed commodo dolor vitae justo tempus hendrerit. Vivamus mollis, magna eget tempor laoreet, neque risus pulvinar erat, vel porttitor metus dolor non lacus. Duis elementum lacus nec bibendum dictum. Suspendisse augue ante, rhoncus quis facilisis nec, varius quis magna. ', accepting_talent: true)
+Event.create!(user_id: 1, genre_id: 1, location_id: 2, image_url: '/images/event_1.jpg', name: 'Anime Revolution 2020', start: '2020-07-31 12:00:00', end: '2020-08-03 22:00:00', max_attendees: 200, description: 'Join us for another year of Anime, Anime, and more Anime! Anirevo Summer is officially booked for July 31st to August 2nd 2020 at the Vancouver Convention Centre (West Building)! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis congue magna ut pulvinar. Integer porttitor risus eu diam aliquam maximus. Sed vestibulum purus semper, eleifend elit eget, bibendum nisi. Sed commodo dolor vitae justo tempus hendrerit. Vivamus mollis, magna eget tempor laoreet, neque risus pulvinar erat, vel porttitor metus dolor non lacus. Duis elementum lacus nec bibendum dictum. Suspendisse augue ante, rhoncus quis facilisis nec, varius quis magna. ', accepting_talent: true)
 
 Event.create!(user_id: 6, genre_id: 1, location_id: 1, image_url: '/images/event_2.jpg', name: 'Celebrate Jojo 2020', start: '2020-11-20 10:00:00', end: '2020-11-21 19:00:00', max_attendees: 50, description: 'JoJo\'s Bizarre Adventure is a Japanese manga series written and illustrated by Hirohiko Araki. Come and experience the madness of Jojo\'s adventure world.
 Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. ', accepting_talent: false)
@@ -135,7 +135,7 @@ Event.create!(user_id: 1, genre_id: 4, location_id: 3, image_url: '/images/event
 Event.create!(user_id: 12, genre_id: 5, location_id: 1, image_url: '/images/event_16.jpg', name: 'Ranked Battles!', start: '2020-10-15 10:00:00', end: '2020-10-17 19:00:00', max_attendees: 20, description: 'Pokémon Sword and Pokémon Shield Ranked Battles October Season Is Here
 Battle your fellow Trainers to move up the leaderboard and earn helpful in-game rewards. Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
 
-Event.create!(user_id: 12, genre_id: 5, location_id: 2, image_url: '/images/event_17.jpg', name: 'Squad Strike Teams 3 vs 3!', start: '2020-10-26 10:00:00', end: '2020-10-27 19:00:00', max_attendees: 50, description: 'Gather your team and compete in this 3 vs 3 championship! Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
+Event.create!(user_id: 12, genre_id: 5, location_id: 1, image_url: '/images/event_17.jpg', name: 'Squad Strike Teams 3 vs 3!', start: '2020-10-26 10:00:00', end: '2020-10-27 19:00:00', max_attendees: 50, description: 'Gather your team and compete in this 3 vs 3 championship! Mauris porttitor consectetur faucibus. Etiam faucibus, massa non consequat commodo, turpis lectus vehicula ante, vitae congue ipsum enim ut metus. Mauris a nisi ac quam porttitor congue. Suspendisse risus tortor, suscipit quis nisl et, dapibus porttitor purus. Quisque id volutpat justo, non tempor magna. Nulla euismod eget orci at vehicula. Sed vitae posuere urna. Morbi vehicula blandit rhoncus. Sed vel pellentesque diam, sed malesuada orci. Aenean faucibus ornare or', accepting_talent: false)
 
 Event.create!(user_id: 3, genre_id: 5, location_id: 4, image_url: '/images/event_18.jpg', name: 'ASL Season 10 Final!', start: '2020-12-05 10:00:00', end: '2020-12-06 19:00:00', max_attendees: 200, description: 'The AfreecaTV Starleague Season 10 (아프리카TV 스타리그 시즌10) is coming to an end! Come watch the final and cheer for your favourite race! Etiam a rutrum dolor. Maecenas tincidunt magna ornare pretium interdum. Vivamus eu dui nec mauris consequat rutrum. Etiam arcu purus, posuere non nunc et, accumsan tincidunt neque. Pellentesque vitae consequat eros. Nulla non justo urna. Nam nibh ipsum, dignissim sit amet nunc eu, pharetra eleifend diam.', accepting_talent: false)
 
@@ -186,14 +186,14 @@ Gig.create!(talent_profile_id: 6, event_id: 4, description: 'Are you free next m
 Gig.create!(talent_profile_id: 5, event_id: 5, description: 'Will you perform?', accepted: true, rejected: nil)
 Gig.create!(talent_profile_id: 6, event_id: 5, description: '', accepted: true, rejected: nil)
 
-Gig.create!(talent_profile_id: 2, event_id: 1, description: '', accepted: nil, rejected: nil)
-Gig.create!(talent_profile_id: 2, event_id: 6, description: '', accepted: nil, rejected: nil)
-Gig.create!(talent_profile_id: 2, event_id: 8, description: '', accepted: nil, rejected: nil)
-Gig.create!(talent_profile_id: 2, event_id: 13, description: '', accepted: nil, rejected: nil)
+Gig.create!(talent_profile_id: 2, event_id: 1, description: '', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 2, event_id: 6, description: '', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 2, event_id: 8, description: '', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 2, event_id: 13, description: '', accepted: true, rejected: nil)
 
-Gig.create!(talent_profile_id: 1, event_id: 14, description: '', accepted: nil, rejected: nil)
+Gig.create!(talent_profile_id: 1, event_id: 14, description: '', accepted: true, rejected: nil)
 Gig.create!(talent_profile_id: 1, event_id: 9, description: '', accepted: nil, rejected: nil)
-Gig.create!(talent_profile_id: 1, event_id: 8, description: '', accepted: nil, rejected: nil)
+Gig.create!(talent_profile_id: 1, event_id: 8, description: '', accepted: true, rejected: nil)
 
 Gig.create!(talent_profile_id: 10, event_id: 1, description: 'Would you care to join us?', accepted: true, rejected: nil)
 Gig.create!(talent_profile_id: 10, event_id: 2, description: 'Would you care to join us?', accepted: true, rejected: nil)
@@ -211,11 +211,11 @@ Gig.create!(talent_profile_id: 9, event_id: 2, description: 'Would you care to j
 Gig.create!(talent_profile_id: 9, event_id: 3, description: 'Would you care to join us?', accepted: true, rejected: nil)
 Gig.create!(talent_profile_id: 9, event_id: 4, description: 'Would you care to join us?', accepted: true, rejected: nil)
 Gig.create!(talent_profile_id: 9, event_id: 5, description: 'Would you care to join us?', accepted: true, rejected: nil)
-Gig.create!(talent_profile_id: 9, event_id: 11, description: 'Would you care to join us?', accepted: true, rejected: nil)
-Gig.create!(talent_profile_id: 9, event_id: 12, description: 'Would you care to join us?', accepted: true, rejected: nil)
-Gig.create!(talent_profile_id: 9, event_id: 13, description: 'Would you care to join us?', accepted: true, rejected: nil)
-Gig.create!(talent_profile_id: 9, event_id: 14, description: 'Would you care to join us?', accepted: true, rejected: nil)
-Gig.create!(talent_profile_id: 9, event_id: 15, description: 'Would you care to join us?', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 1, event_id: 11, description: 'Would you care to join us?', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 1, event_id: 12, description: 'Would you care to join us?', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 1, event_id: 13, description: 'Would you care to join us?', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 1, event_id: 14, description: 'Would you care to join us?', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 1, event_id: 15, description: 'Would you care to join us?', accepted: true, rejected: nil)
 
 Gig.create!(talent_profile_id: 7, event_id: 3, description: 'Would you care to join us?', accepted: true, rejected: nil)
 Gig.create!(talent_profile_id: 8, event_id: 7, description: 'Would you care to join us?', accepted: true, rejected: nil)
@@ -321,3 +321,18 @@ Registration.create!(user_id: 7, event_id: 7)
 Registration.create!(user_id: 7, event_id: 8)
 Registration.create!(user_id: 7, event_id: 9)
 Registration.create!(user_id: 7, event_id: 10)
+
+
+## Seeds for demo
+
+User.create!(name: 'Blacitea', email: 'blacitea@gmail.com', location_id: 1) #21
+User.create!(name: 'Quinnvoker', email: 'quinnvoker@gmail.com', location_id: 2) #22
+User.create!(name: 'Risatronic', email: 'mcr.doig@gmail.com', location_id: 2) #23
+
+Registration.create!(user_id: 21, event_id: 10)
+
+TalentProfile.create!(user_id: 23, genre_id: 5, location_id: 2, image_url: '/images/talent_marisa.jpg', description: 'Video game commentater/player in Victoria, BC. Preferred genres include RPGs of all kinds, fighting games, turn-based strategy, simulations, and puzzles. Bonus for cat themes!', personal_link: 'https://twitter.com/smolrobots', open_for_booking: true, name: 'Risatronic')
+
+
+Gig.create!(talent_profile_id: 11, event_id: 16, description: 'Will you perform?', accepted: true, rejected: nil)
+Gig.create!(talent_profile_id: 11, event_id: 19, description: 'Would you care to join us?', accepted: true, rejected: nil)
