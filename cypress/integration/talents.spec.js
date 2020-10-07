@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 describe('Talents', () => {
-	before(() => {
+	beforeEach(() => {
 		axios.get('http://localhost:3001/cypress_rails_reset_state');
 	});
 
@@ -33,7 +33,7 @@ describe('Talents', () => {
 		cy.contains('User 5');
 		cy.get('.dropdown__login li:last').click();
 
-		// Go to Event explore
+		// Go to Talent explore
 		cy.contains('Create').click();
 		cy.contains('New Talent').click();
 		cy.contains('Accepting Invitation?');
@@ -56,84 +56,65 @@ describe('Talents', () => {
 		cy.contains('Please give us a name to promote you.');
 	});
 
-	xit('submit an event with details provided', () => {
+	xit('submit a talent profile with details provided', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
 		// When not logged in, dropdown list show login links, click first option to login as User 1
-		cy.contains('User 1');
-		cy.get('.dropdown__login li:first').click();
+		cy.contains('User 5');
+		cy.get('.dropdown__login li:last').click();
 
 		// Go to Event explore
 		cy.contains('Create').click();
-		cy.contains('New Event').click();
-		cy.contains('Accepting Talents?');
+		cy.contains('New Talent').click();
+		cy.contains('Accepting Invitation?');
 
-		// Submit without info
-		cy.get('input[name=name]').type('My cool event');
+		// Submit with info
+		cy.get('input[name=name]').type('Nicole');
 		cy.get('select[name=location_id]').select('Vancouver');
 		cy.get('select[name=genre_id]').select('Video Games');
-		cy.get('input[name=start]').type('2020-11-01');
-		cy.get('input[name=end]').type('2020-11-03');
 		cy.get('input[name=image_url]').type(
 			'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRfdGXhrM2d89IboXmquNuIilS6-u0-4cblRQ&usqp=CAU'
 		);
-		cy.get('input[name=max_attendees]').type('10');
-		cy.get('textarea[name=description]').type('Event creation testing');
+		cy.get('input[name=personal_link]').type('http://nickcool.twitter.com');
+		cy.get('textarea[name=description]').type('Talent creation testing');
 		cy.contains('Submit').click();
-		cy.contains('Event submitted successfully!').get('#modal-close').click();
-		cy.contains('Video Games event in Vancouver');
+		cy.contains('Talent profile submitted successfully!')
+			.get('#modal-close')
+			.click();
+		cy.contains('Video Games talent in Vancouver');
+
+		// Click find event button will redirect to browse events page
+		cy.get('.button-explore-btn').click();
+		cy.contains('Explore Events');
 	});
 
-	xit('invite talent to owned event', () => {
+	it('talent can accpte event invitation', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
 		// When not logged in, dropdown list show login links, click to login as User 1
-		cy.contains('User 1');
-		cy.get('.dropdown__login li:first').click();
+		cy.get('.dropdown__login li').eq(1).click();
+		// cy.get('.dropdown__login li:first').click();
 
-		// Go to user profile and check My Events
+		// Go to user profile and check My Profile
 		cy.get('.nav-action').last().click();
 		cy.get('.dropdown__login a:last').click();
 
-		// Click the My Events button to toggle display
-		cy.wait(500).contains('My Events').click();
-		cy.wait(500).contains('Perfect Fit').click();
+		// Click the My Performance button to toggle display
+		cy.contains('Name : Nicola Jones');
+		cy.wait(500).contains('My Performances').click();
+		cy.get('.profile-sub-item-title').eq(3).click();
 
-		// Redirect to event show page
-		cy.wait(500).contains('Perfect Fit');
-		cy.contains('Handmade Crafts event in Montreal');
-		cy.contains('Remaining spots:');
+		// Redirect to event show page with invitation field enabled
+		cy.wait(500).contains('Anime Revolution 2020');
+		cy.contains('You have an invitation to perform at this event!');
+		cy.contains('Decline');
+		cy.contains('Accept');
 
-		// Click invite talent button will redirect to browse talent page
-		cy.get('.button-explore-btn').click();
-		cy.contains('Explore Talents');
-		cy.wait(500).contains('Kyuuno');
-
-		// Can filter with location
-		cy.get('select').first().select('Vancouver');
-		cy.should('not.contain', 'Kyuuno');
-
-		// Click a talent picture will redirect to talent show page
-		cy.wait(500).contains('AiChan').click();
-		cy.contains('Handmade Crafts talent in Vancouver');
-		cy.get('[alt=AiChan]');
-
-		// Open up modal with invitation form
-		cy.wait(500).contains('Invite To Event').click();
-		cy.wait(500).get('#modal-close');
-		// cy.get('[alt=AiChan]');
-		// cy.get('.talent-name').should('contain', 'AiChan');
-		cy.wait(500).get('select[name=event_id]').select('Perfect Fit');
-
-		// //Error if no event selected
-		// // cy.get('.form-submit').click();
-		// // cy.contains('Event required to send invitation.');
-
-		// //Success submit if event selected
-		// // cy.get('select[name=event_id]').select('Perfect Fit');
-		cy.wait(500).get('.form-submit').click();
-		cy.contains('Invitation sent');
+		// Click accept button to accept invitation
+		cy.get('.event-invite-btn-accept').click();
+		cy.contains('Invitation was accepted!');
+		cy.get('[alt=CSGO]');
 	});
 });
