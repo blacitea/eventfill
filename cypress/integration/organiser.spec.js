@@ -1,9 +1,16 @@
-describe('The Home Page', () => {
+import axios from 'axios';
+
+describe('Event Organiser', () => {
+	before(() => {
+		axios.get('http://localhost:3001/cypress_rails_reset_state');
+	});
+
 	xit('successfully loads', () => {
 		// must use localhost:3000 here because by default
 		// cypress will try and load 3001, the api server
 		cy.visit('localhost:3000/');
 	});
+
 	xit('login and logout', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
@@ -21,6 +28,7 @@ describe('The Home Page', () => {
 		cy.get('.nav-action').last().click();
 		cy.contains('User 1');
 	});
+
 	xit('open create form from event - Add Your Own! after login', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
@@ -34,6 +42,7 @@ describe('The Home Page', () => {
 		cy.contains('Add Your Own!').click();
 		cy.contains('Accepting Talents?');
 	});
+
 	xit('open create form from Create - New Event after login', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
@@ -95,7 +104,7 @@ describe('The Home Page', () => {
 		cy.contains('Video Games event in Vancouver');
 	});
 
-	it('invite talent to owned event', () => {
+	xit('invite talent to owned event', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -108,39 +117,42 @@ describe('The Home Page', () => {
 		cy.get('.dropdown__login a:last').click();
 
 		// Click the My Events button to toggle display
-		cy.contains('My Events').click();
-		cy.contains('Perfect Fit').click();
+		cy.wait(500).contains('My Events').click();
+		cy.wait(500).contains('Perfect Fit').click();
 
 		// Redirect to event show page
-		cy.contains('Perfect Fit');
+		cy.wait(500).contains('Perfect Fit');
 		cy.contains('Handmade Crafts event in Montreal');
 		cy.contains('Remaining spots:');
 
 		// Click invite talent button will redirect to browse talent page
 		cy.get('.button-explore-btn').click();
 		cy.contains('Explore Talents');
-		cy.contains('Kyuuno');
+		cy.wait(500).contains('Kyuuno');
 
 		// Can filter with location
 		cy.get('select').first().select('Vancouver');
 		cy.should('not.contain', 'Kyuuno');
 
 		// Click a talent picture will redirect to talent show page
-		cy.contains('AiChan').click();
+		cy.wait(500).contains('AiChan').click();
 		cy.contains('Handmade Crafts talent in Vancouver');
+		cy.get('[alt=AiChan]');
 
 		// Open up modal with invitation form
-		cy.contains('Invite To Event').click();
-		cy.contains('Send Invitation');
-		cy.get('.talent-name').should('contain', 'AiChan');
+		cy.wait(500).contains('Invite To Event').click();
+		cy.wait(500).get('#modal-close');
+		// cy.get('[alt=AiChan]');
+		// cy.get('.talent-name').should('contain', 'AiChan');
+		cy.wait(500).get('select[name=event_id]').select('Perfect Fit');
 
-		// Error if no event selected
-		// cy.get('.form-submit').click();
-		// cy.contains('Event required to send invitation.');
+		// //Error if no event selected
+		// // cy.get('.form-submit').click();
+		// // cy.contains('Event required to send invitation.');
 
-		// Success submit if event selected
-		// cy.get('select[name=event_id]').select('Perfect Fit');
-		// cy.get('.form-submit').click();
-		// cy.contains('Invitation sent');
+		// //Success submit if event selected
+		// // cy.get('select[name=event_id]').select('Perfect Fit');
+		cy.wait(500).get('.form-submit').click();
+		cy.contains('Invitation sent');
 	});
 });
