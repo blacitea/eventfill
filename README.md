@@ -63,7 +63,7 @@ If you wish to update the client after initial setup, run `git submodule update 
 - Quick view of your own events, scheduled gigs, and events you are attending
 - Accept or reject invitations to appear at events
 
-To-do list:
+Up next:
 
 - Better notification UI
 - Enable talent to approach organizers
