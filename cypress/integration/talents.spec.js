@@ -5,13 +5,13 @@ describe('Talents', () => {
 		axios.get('http://localhost:3001/cypress_rails_reset_state');
 	});
 
-	xit('successfully loads', () => {
+	it('successfully loads', () => {
 		// must use localhost:3000 here because by default
 		// cypress will try and load 3001, the api server
 		cy.visit('localhost:3000/');
 	});
 
-	xit('open create form from talents - Add Your Own! after login', () => {
+	it('open create form from talents - Add Your Own! after login', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -25,7 +25,7 @@ describe('Talents', () => {
 		cy.contains('Accepting Invitation?');
 	});
 
-	xit('open create form from Create - New Talent after login', () => {
+	it('open create form from Create - New Talent after login', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -39,7 +39,7 @@ describe('Talents', () => {
 		cy.contains('Accepting Invitation?');
 	});
 
-	xit('error if submit an empty talent profile', () => {
+	it('error if submit an empty talent profile', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -56,7 +56,7 @@ describe('Talents', () => {
 		cy.contains('Please give us a name to promote you.');
 	});
 
-	xit('submit a talent profile with details provided', () => {
+	it('submit a talent profile with details provided', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();

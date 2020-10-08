@@ -5,13 +5,13 @@ describe('Event Organiser', () => {
 		axios.get('http://localhost:3001/cypress_rails_reset_state');
 	});
 
-	xit('successfully loads', () => {
+	it('successfully loads', () => {
 		// must use localhost:3000 here because by default
 		// cypress will try and load 3001, the api server
 		cy.visit('localhost:3000/');
 	});
 
-	xit('login and logout', () => {
+	it('login and logout', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -29,7 +29,7 @@ describe('Event Organiser', () => {
 		cy.contains('User 1');
 	});
 
-	xit('open create form from event - Add Your Own! after login', () => {
+	it('open create form from event - Add Your Own! after login', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -43,7 +43,7 @@ describe('Event Organiser', () => {
 		cy.contains('Accepting Talents?');
 	});
 
-	xit('open create form from Create - New Event after login', () => {
+	it('open create form from Create - New Event after login', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -57,7 +57,7 @@ describe('Event Organiser', () => {
 		cy.contains('Accepting Talents?');
 	});
 
-	xit('error if submit an empty event', () => {
+	it('error if submit an empty event', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -75,7 +75,7 @@ describe('Event Organiser', () => {
 		cy.contains('Please give us a name to promote your event.');
 	});
 
-	xit('submit an event with details provided', () => {
+	it('submit an event with details provided', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
@@ -104,7 +104,7 @@ describe('Event Organiser', () => {
 		cy.contains('Video Games event in Vancouver');
 	});
 
-	xit('invite talent to owned event', () => {
+	it('invite talent to owned event', () => {
 		cy.visit('localhost:3000/').contains('My Account');
 		// Can click 'My Account' to toggle dropdown list
 		cy.get('.nav-action').last().click();
