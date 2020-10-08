@@ -60,13 +60,13 @@ describe('The Messaging System', () => {
 
     cy.get('span#modal-close').click();
 
-    cy.visit('localhost:3000/login/1');
+    cy.visit('localhost:3000/login/17');
     cy.visit('localhost:3000/messages');
 
     cy.contains('System').should('exist');
     cy.contains('System').click();
     cy.contains(
-      "Jimothy Muirs: Event 'Friday Magic!' has been cancelled! :("
+      "Nicola Muirs: Event 'Friday Magic!' has been cancelled! :("
     ).should('exist');
   });
 
